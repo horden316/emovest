@@ -6,18 +6,7 @@ window.onload = async () => {
         window.web3 = new Web3(window.ethereum);
     } else {
         alert("No ETH brower extension detected.");
-    }
-    // Load in Localstore key
-    window.userAddress = window.localStorage.getItem("userAddress");
-    showAddress();
-};
-
- */
-/*尚未完工
-function truncateAddress(address) {
-    if (!address) {
-        return "";
-    }
+    
     return `${address.substr(0, 5)}...${address.substr(
         address.length - 5,
         address.length
