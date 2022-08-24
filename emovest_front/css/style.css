@@ -290,3 +290,71 @@ body.dark .home .text{
     color: var(--text-color);
 }
 
+
+/*AccountLink.htmlㄉ設定*/
+
+#AccountLink img{
+    width: 30px;
+    margin: 13px 10px 10px 40px;
+}
+
+#AccountLink h4{
+   padding: 13px 0 0 100px ;
+}
+
+#AccountLink h3{
+    padding: 20px 0 0 0;
+}
+
+#AccountLink li{
+    font-size: xx-large;
+}
+
+#AccountLink a{
+    color: #3a3c3b;
+}
+
+#AccountLink button a:hover{
+    text-decoration: none;
+}
+
+.Exchanges, .UnLinkExchanges{
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.Exchanges button{
+    border: #000000;
+    border-radius: 20px;
+    color: #000000;
+    padding:8px 15px;
+    margin: 0px 30px 10px 60px;
+}
+
+.Exchanges button:hover{
+    background-color: #afa8ff7e;
+}
+
+.Exchanges .more{
+    padding: 100px 100px;
+}
+
+.UnLinkExchanges button{
+    border: #695CFE;
+    border-radius: 8px;
+    background-color: #626ef687;
+    padding:8px 15px;
+    margin: 0px 5px 10px 15px;
+}
+
+.UnLinkExchanges button:hover{
+    background-color: #6158afb1;
+}
+
+@media only screen and (max-width: 1200px){
+    .Exchanges button{
+        margin: 0px 30px 10px 40px;
+    }
+}
