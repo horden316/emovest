@@ -1,0 +1,33 @@
+const Binance = require('node-binance-api');
+const Keys    = require('./config.js');
+const binance = new Binance().options(Keys);
+
+let options = { 
+    limit: 2 // Limit results to two entries
+  };
+
+
+/* trade 歷史紀錄
+binance.trades("BTCBRL", (error, trades, symbol) => {  
+    for(let k in trades) { 
+    let trade = trades[k];
+    let tradeDateTime = new Date(trade.time);
+    console.log(`Trade event --------------------------------`);
+    console.log(`time             : ${tradeDateTime}`);
+    console.log(`symbol           : ${trade.symbol}`);
+    console.log(`price            : ${trade.price}`);
+    console.log(`quantity         : ${trade.qty}`);
+    console.log(`commission fee   : ${trade.commission}`);
+    console.log(`commission asset : ${trade.commissionAsset}`);
+//    console.log(trade);
+    }
+}, options);
+
+*/
+
+//取得balance
+binance.balance((error, balances) => {
+    if ( error ) return console.error(error);
+    console.info("balances()", balances);
+    console.info("ETH balance: ", balances.ETH.available);
+  });
