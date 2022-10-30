@@ -4,15 +4,14 @@ const sha256 = require('crypto-js/sha256')
 const Hex = require('crypto-js/enc-hex')
 
 class FtxClient {
-  constructor(apiKey, apiSecretKey, subaccount) {
+  constructor(apiKey, apiSecretKey) {
     this.instance = axios.create({
       baseURL: 'https://ftx.com/api/',
       timeout: 5000,
       headers: {
         'accept': 'application/json',
         'Content-Type': 'application/json; utf-8',
-        'FTX-KEY': apiKey,
-        'FTX-SUBACCOUNT': subaccount
+        'FTX-KEY': apiKey
       }
     });
 
@@ -160,10 +159,11 @@ class FtxClient {
 }
 
 const ftxClient = new FtxClient(
-  'apiKey',
-  'apiSecretKey',
-  'subaccount'
+  'n79Frud-hn0Q4QYqpzWBwjEQVa-wDsmu9aAexhPP',
+  'ZlwjBgHwxHKrIAdASM2Plnoieu8_vIB-ouca4cJy'
 )
+ftxClient.getBalances()
+//console.log(ftxClient.getAccountInfo());
 
 // test code
 // const market = 'BTC-0327'
