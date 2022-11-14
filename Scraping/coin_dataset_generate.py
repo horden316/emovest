@@ -26,11 +26,14 @@ path_base= basepath+ "/Scraping/data/Coinmarket_comments_dataset/"  #獲取目�
 
 random.shuffle(lines)
 
-train_data_pos=(lines[:(len(lines)//2)])
+print('trainpos'+str((len(lines)//10)*8))
+print('testpos'+str((len(lines)//10)*2))
+
+#決定切的比例
+train_data_pos=(lines[:(len(lines)//10)*8])
 
 
-test_data_pos=(lines[(len(lines)//2):])
-
+test_data_pos=(lines[(len(lines)//10)*8:])
 
 for i in range(len(train_data_pos)):
     with open(path_base+"train/pos/"+str(i)+".txt","w") as f2:
@@ -40,6 +43,9 @@ for i in range(len(train_data_pos)):
 for i in range(len(test_data_pos)):
     with open(path_base+"test/pos/"+str(i)+".txt","w") as f3:
         f3.write(test_data_pos[i].replace("\n",""))
+
+    with open(path_base+"AlltestPOS.txt","a") as f7:
+        f7.write(test_data_pos[i])
 
 
 
@@ -51,10 +57,10 @@ with open(path2,"r") as f4:
 
 
 
-randomlist_neg=random.shuffle(lines2)
+random.shuffle(lines2)
 
-train_data_neg=(lines2[:(len(lines2)//2)])
-test_data_neg=(lines2[(len(lines2)//2):])
+train_data_neg=(lines2[:(len(lines2)//10)*8])
+test_data_neg=(lines2[(len(lines2)//10)*8:])
 
 
 for i in range(len(train_data_neg)):
@@ -65,5 +71,8 @@ for i in range(len(train_data_neg)):
 for i in range(len(test_data_neg)):
     with open(path_base+"test/neg/"+str(i)+".txt","w") as f6:
         f6.write(test_data_neg[i].replace("\n",""))
+
+    with open(path_base+"AlltestNEG.txt","a") as f8:
+        f8.write(test_data_neg[i])
 
 
