@@ -36,7 +36,7 @@ li a {
 li a:hover, .btn a:hover{
     color: black;
     text-decoration: none;
-    background-color: #e0b798bd;
+    background-color: #e0b798;
 	/* opacity: 0.8; */
     /* background-color: #111; */
 }

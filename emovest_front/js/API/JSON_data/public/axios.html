@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.2/axios.min.js" ></script>
+</head>
+<body>
+    <h1>Hello <span id="username"></span></h1>
+
+    <form action="/api/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
+        <input type="file" name="f1">
+        <input type="submit" value="Upload">
+        <input type="button" value="Ajax Upload" id="ajaxUpload">
+    </form>
+
+    <script>
+
+        function jsonToQueryString(json) {
+            return Object.keys(json).map(function(key) {
+                    return encodeURIComponent(key) + '=' +
+                        encodeURIComponent(json[key]);
+                }).join('&');
+        }
+        // Serialize object to query string in JavaScript/jQuery的內建辦法
+        // Var url = new URLSearchParams({
+        //         firstName: 'Fred', 
+        //         lastName: 'Flintstone'
+        // })
+        // url.toString()
+        // ==>"firstName=Fred&lastName=Flinstone"
+
+        axios.get('/api/get', {
+            params: {
+                id: 5, 
+                key: "ab123"
+            }
+        }).then(function(response){ 
+            username.innerText = response.data.name
+        })
+
+        axios.post('/api/post', jsonToQueryString ({
+                firstName: 'Fred', 
+                lastName: 'Flintstone'
+        }))
+
+        ajaxUpload.addEventListener('click', function(){
+            var formData = new FormData(uploadForm)
+            axios.post("/api/upload", formData, {
+                headers: {
+                    'Content-Type': 'muluipart/form-data'
+                }
+            })
+        })
+    </script>
+</body>
+</html>

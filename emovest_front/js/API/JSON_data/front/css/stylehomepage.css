@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 150%;
+    /*font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Open Sans', sans-serif;*/
+}
+
+/*上半部*/
+.navitem {
+    display: flex;
+    font-size: 55px;
+    align-items: center;
+}
+
+.white {
+    color: white;
+}
+
+.orange {
+    color: #E97000
+}
+
+.container0 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    max-width: none;
+    background-color: #DC9756;
+}
+
+.container0 .logo {
+    color: #432B0F;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    margin-left: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 55px;
+    max-width: none;
+    background-color: #F0C994;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+a {
+    color: inherit;
+    /* 移除超連結顏色 */
+    text-decoration: none;
+    /* 移除超連結底線 */
+}
+
+nav ul {
+    list-style: none;
+    /* 移除項目符號 */
+}
+
+li {
+    font-size: 24px;
+}
+
+.btn {
+    background: #F0C994;
+    color: #432B0F;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.3em;
+    border: none;
+}
+
+.btncontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.usercontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+    border: 3px solid #333;
+    border-radius: 100%;
+}
+
+.signinbtn,
+.loginbtn {
+    margin-right: 20px;
+}
+
+.navlink {
+    font-size: 0.4em;
+}
+
+.navlink2 {
+    font-size: 0.4em;
+    color: white;
+
+}
+
+/* 第一層 */
+.first {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: none;
+    height: 420px;
+    background-color: #E2E2E2;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+.first img {
+    margin-left: 50px;
+}
+
+.firstbutton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 300px;
+}
+
+.firstbtn0 {
+    width: 450px;
+    height: 50px;
+    background-color: #E97000;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.orline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+}
+
+.orline hr {
+    width: 200px;
+    color: #333;
+    opacity: 0.5;
+}
+
+.orline h4 {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+.firstbtn {
+    width: 450px;
+    height: 50px;
+    background-color: #F0C994;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+/* 第二層 */
+.second {
+    max-width: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.second h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.vline {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.vline hr {
+    width: 1000px;
+    opacity: 0.5;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 81%;
+    height: 50px;
+    border: 1px solid rgb(212, 212, 212);
+    border-bottom: none;
+    margin-left: 10%;
+}
+
+.title h4 {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+}
+
+.price {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+}
+
+.bitbox {
+    max-width: none;
+    padding-left: 10%;
+
+}
+
+.boxblank {
+    max-width: 90%;
+    ;
+}
+
+/*下半部*/
+.latestlayer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #F0C994;
+    height: 320px;
+    max-width: auto;
+    margin-top: 50px;
+    font-family: 'Inter', sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 32px;
+    width: 200px;
+}
+
+.content h3 {
+    font-size: 0.8em;
+    margin-top: 30px;
+    font-weight: 400;
+}
+
+.content h4 {
+    font-size: 0.5em;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+.fa-brands {
+    margin-top: 25px;
+    color: white;
+}
+
+/*.fa-square-facebook,
+.fa-square-twitter {
+    color: rgb(68, 156, 215);
+}
+
+.fa-instagram {
+    color: rgb(225, 63, 120);
+}*/
+
+.latest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: auto;
+    height: 25px;
+    background-color: #EBB670;
+}
+
+.latest p {
+    font-size: 0.5em;
+    opacity: 0.5;
+}
