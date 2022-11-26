@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylemarket.css">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/27fa02f410.js" crossorigin="anonymous"></script>
+    <!--chart.js 套件 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<header>
+
+    <nav class="navbar">
+        <ul class="container0">
+            <li class="navitem">
+                <a class="logo" href="#">EmoVest</a>
+            </li>
+            <div class="usercontainer">
+                <a href="indexsignin.html"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </ul>
+        <ul class="container">
+            <li class="navitem">
+                <a class="navlink" href="indexhomepage.html">主頁</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexemotion.html">情緒儀表板</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexinvest.html">投資績效計算</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink2" href="indexmarket.html">市場行情</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexaccount.html">帳戶</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <!-- TradingView Widget BEGIN -->
+    <div class="kpic">
+        <div class="tradingview-widget-container">
+            <div id="tradingview_efa4c"></div>
+            <!-- <div class="tradingview-widget-copyright"><a href="https://tw.tradingview.com/symbols/NASDAQ-AAPL/"
+                    rel="noopener" target="_blank"><span class="blue-text">AAPL圖表</span></a>由TradingView提供</div> -->
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <script type="text/javascript">
+                new TradingView.widget(
+                    {
+                        "autosize": true,
+                        "symbol": "BTC/USDT",
+                        "interval": "D",
+                        "timezone": "Etc/UTC",
+                        "theme": "light",
+                        "style": "1",
+                        "locale": "zh_TW",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "allow_symbol_change": true,
+                        "container_id": "tradingview_efa4c"
+                    }
+                );  
+            </script>
+        </div>
+        <div class="oftenuse">
+            <div class="choosebittitle">常用幣種</div>
+            <div class="choosebox">
+                <button class="choosebit" id="choosebitBTC" value="BTCUSDT">BTC</button>
+                <button class="choosebit" id="choosebitETH" value="ETHUSDT">ETH</button>
+                <button class="choosebit" id="choosebitLUNA" value="LUNAUSDT">LUNA</button>
+                <button class="choosebit" id="choosebitBNB" value="BNBUSDT">BNB</button>
+                <button class="choosebit" id="choosebitXRP" value="XRPUSDT">XRP</button>
+                <button class="choosebit" id="choosebitADA" value="ADAUSDT">ADA</button>
+                <button class="choosebit" id="choosebitSOL" value="SOLUSDT">SOL</button>
+                <button class="choosebit" id="choosebitDOGE" value="DOGEUSDT">DOGE</button>
+                <button class="choosebit" id="choosebitDOT" value="DOTUSDT">DOT</button>
+                <button class="choosebit" id="choosebitAVAX" value="AVAXUSDT">AVAX</button>
+                <button class="choosebit" id="choosebitTRX" value="TRXUSDT">TRX</button>
+            </div>
+        </div>
+    </div>
+    <div class="bitprice">
+        <!-- TradingView Widget END -->
+        <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script>
+        <div id="coinmarketcap-widget-coin-price-block" coins="1,1027,2010,74,52,1839,5426,20314,10833,4172"
+            currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>
+    </div>
+
+    <script type="text/javascript">
+        $('#choosebitBTC').click(function () {
+            bitchange($("#choosebitBTC").val());
+        })
+        $('#choosebitETH').click(function () {
+            bitchange($("#choosebitETH").val());
+        })
+        $('#choosebitLUNA').click(function () {
+            bitchange($("#choosebitLUNA").val());
+        })
+        $('#choosebitBNB').click(function () {
+            bitchange($("#choosebitBNB").val());
+        })
+        $('#choosebitXRP').click(function () {
+            bitchange($("#choosebitXRP").val());
+        })
+        $('#choosebitADA').click(function () {
+            bitchange($("#choosebitADA").val());
+        })
+        $('#choosebitSOL').click(function () {
+            bitchange($("#choosebitSOL").val());
+        })
+        $('#choosebitDOGE').click(function () {
+            bitchange($("#choosebitDOGE").val());
+        })
+        $('#choosebitDOT').click(function () {
+            bitchange($("#choosebitDOT").val());
+        })
+        $('#choosebitAVAX').click(function () {
+            bitchange($("#choosebitAVAX").val());
+        })
+        $('#choosebitTRX').click(function () {
+            bitchange($("#choosebitTRX").val());
+        })
+        function bitchange(bitcoin) {
+            new TradingView.widget(
+                {
+                    "autosize": true,
+                    "symbol": bitcoin,
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "light",
+                    "style": "1",
+                    "locale": "zh_TW",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview_efa4c"
+                }
+            );
+        }
+
+    </script>
+</body>
+<footer>
+    <div class="latestlayer">
+        <div class="content">
+            <h3>關於我們</h3>
+            <h4>商業聯絡</h4>
+            <h4>幣安資訊</h4>
+            <h4>服務協議</h4>
+            <h4>隱私說明</h4>
+            <h4>風險提示</h4>
+            <h4>Cookie偏好設定</h4>
+        </div>
+        <div class="content">
+            <h3>幫助</h3>
+            <h4>反饋及建議</h4>
+            <h4>幫助中心</h4>
+        </div>
+        <div class="content">
+            <h3>社群</h3>
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+        </div>
+    </div>
+    <div class="latest">
+        <p class=footerp>Copyright © Emovest108ab00</p>
+    </div>
+</footer>
+
+<!--載入jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--載入jQuery UI 1.11.4-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //導覽列變色
+        $(".navlink").click(function () {
+            $(this).css("color", "#FFFFF");
+        })
+        $(".navlink").mouseenter(function () {
+            $(this).css("color", "#FFFFF");
+            $(this).css("cursor", "pointer");
+        })
+        $(".navlink").mouseleave(function () {
+            $(this).css("color", "#000000");
+        })
+        //登入註冊按鈕變色
+        $("button").click(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+        $("button").mouseenter(function () {
+            $(this).css("background-color", "#EED9BB");
+            $(this).css("cursor", "pointer");
+        })
+        $("button").mouseleave(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+
+        $(".content h4").mouseenter(function () {
+            $(this).addClass("white")
+            $(this).addClass("big")
+        })
+        $(".content h4").mouseleave(function () {
+            $(this).removeClass("white")
+            $(this).removeClass("big")
+        })
+        $("#tab h3").mouseenter(function () {
+            $(this).addClass("orange")
+            $(this).addClass("big")
+        })
+        $("#tab h3").mouseleave(function () {
+            $(this).removeClass("orange")
+            $(this).removeClass("big")
+        })
+    })
+
+</script>
+
+</html>

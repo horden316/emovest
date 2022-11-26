@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 150%;
+}
+
+/*上半部*/
+.navitem {
+    display: flex;
+    font-size: 55px;
+    align-items: center;
+}
+
+.white {
+    color: white;
+}
+
+.orange {
+    color: #E97000
+}
+
+.container0 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    max-width: none;
+    background-color: #DC9756;
+}
+
+.container0 .logo {
+    color: #432B0F;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    margin-left: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 55px;
+    max-width: none;
+    background-color: #F0C994;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+}
+
+a {
+    color: inherit;
+    /* 移除超連結顏色 */
+    text-decoration: none;
+    /* 移除超連結底線 */
+}
+
+nav ul {
+    list-style: none;
+    /* 移除項目符號 */
+}
+
+li {
+    font-size: 24px;
+}
+
+.btn {
+    background: #F0C994;
+    color: #dc6e07;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.3em;
+    border: none;
+}
+
+.btncontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.usercontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 30px;
+    border: 3px solid #333;
+    border-radius: 100%;
+}
+
+.signinbtn,
+.loginbtn {
+    margin-right: 20px;
+}
+
+.container .navlink {
+    font-size: 0.4em;
+}
+
+/* 中間 */
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: none;
+    height: 500px;
+}
+
+.membersignin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.membersignin h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    letter-spacing: 5px;
+    color: #DC9756;
+}
+
+.inputbox {
+    width: 400px;
+    height: 35px;
+    padding-left: 10px;
+    margin-top: 20px;
+    outline: none;
+    /* 不要有藍框*/
+    border: 2px solid #ced4da;
+}
+
+.signin {
+    background: #F0C994;
+    color: white;
+    width: 400px;
+    height: 35px;
+    margin-top: 20px;
+    border: none;
+    font-size: 14px;
+}
+
+.function {
+    color: #432B0F;
+    opacity: 0.5;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/*下半部*/
+.latestlayer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #F0C994;
+    height: 320px;
+    max-width: auto;
+    margin-top: 50px;
+    font-family: 'Inter', sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 32px;
+    width: 200px;
+}
+
+.content h3 {
+    font-size: 0.8em;
+    margin-top: 30px;
+    font-weight: 400;
+}
+
+.content h4 {
+    font-size: 0.5em;
+    font-weight: 300;
+    margin-top: 20px;
+}
+
+.fa-brands {
+    margin-top: 25px;
+    color: white;
+}
+
+.latest {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: auto;
+    height: 25px;
+    background-color: #EBB670;
+}
+
+.latest p {
+    font-size: 0.5em;
+    opacity: 0.5;
+}

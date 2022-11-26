@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/27fa02f410.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/stylesignin.css">
+</head>
+
+<header>
+
+    <nav class="navbar">
+        <ul class="container0">
+            <li class="navitem">
+                <a class="logo" href="#">EmoVest</a>
+            </li>
+            <div class="usercontainer">
+                <a href="indexsignin.html"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </ul>
+        <ul class="container">
+            <li class="navitem">
+                <a class="navlink" href="indexhomepage.html">主頁</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexemotion.html">情緒儀表板</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexinvest.html">投資績效計算</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexmarket.html">市場行情</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexaccount.html">帳戶</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="box">
+        <div class="membersignin">
+            <h1>錢包登入</h1>
+            <!-- <input type="email" class="inputbox" placeholder="輸入電子郵件">
+            <input type="password" class="inputbox" placeholder="輸入密碼"> -->
+            <button class="signin"><a href="#">登入</a></button>
+            <!-- <a href="#" class="function">註冊帳號・忘記密碼？</a> -->
+        </div>
+    </div>
+</body>
+
+<footer>
+    <div class="latestlayer">
+        <div class="content">
+            <h3>關於我們</h3>
+            <h4>商業聯絡</h4>
+            <h4>幣安資訊</h4>
+            <h4>服務協議</h4>
+            <h4>隱私說明</h4>
+            <h4>風險提示</h4>
+            <h4>Cookie偏好設定</h4>
+        </div>
+        <div class="content">
+            <h3>幫助</h3>
+            <h4>反饋及建議</h4>
+            <h4>幫助中心</h4>
+        </div>
+        <div class="content">
+            <h3>社群</h3>
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+        </div>
+    </div>
+    <div class="latest">
+        <p class=footerp>Copyright © Emovest108ab00</p>
+    </div>
+</footer>
+
+<!--載入jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--載入jQuery UI 1.11.4-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //點及輸入鈕外誆變色
+        $(".inputbox").click(function () {
+            $(this).css("border-color", "#F0C994")
+        })
+        $(".inputbox").blur(function () {
+            $(this).css("border-color", "#ced4da")
+        })
+        //導覽列變色
+        $(".navlink").click(function () {
+            $(this).css("color", "#FFFFF");
+        })
+        $(".navlink").mouseenter(function () {
+            $(this).css("color", "#FFFFF");
+            $(this).css("cursor", "pointer");
+        })
+        $(".navlink").mouseleave(function () {
+            $(this).css("color", "#000000");
+        })
+        //登入註冊按鈕變色
+        $("button").click(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+        $("button").mouseenter(function () {
+            $(this).css("background-color", "#EED9BB");
+            $(this).css("cursor", "pointer");
+        })
+        $("button").mouseleave(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+
+        $(".content h4").mouseenter(function () {
+            $(this).addClass("white")
+            $(this).addClass("big")
+        })
+        $(".content h4").mouseleave(function () {
+            $(this).removeClass("white")
+            $(this).removeClass("big")
+        })
+        $("#tab h3").mouseenter(function () {
+            $(this).addClass("orange")
+            $(this).addClass("big")
+        })
+        $("#tab h3").mouseleave(function () {
+            $(this).removeClass("orange")
+            $(this).removeClass("big")
+        })
+    })
+
+</script>
+
+</html>

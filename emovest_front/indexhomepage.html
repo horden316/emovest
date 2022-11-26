@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/27fa02f410.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/stylehomepage.css">
+</head>
+<header>
+
+    <nav class="navbar">
+        <ul class="container0">
+            <li class="navitem">
+                <a class="logo" href="#">EmoVest</a>
+            </li>
+            <div class="usercontainer">
+                <a href="indexsignin.html"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </ul>
+        <ul class="container">
+            <li class="navitem">
+                <a class="navlink2" href="indexhomepage.html">主頁</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexemotion.html">情緒儀表板</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexinvest.html">投資績效計算</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexmarket.html">市場行情</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexaccount.html">帳戶</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="first">
+        <p class="what">What Is EmoVest?</p>
+        <div class="insidebox">
+            <img src="img/封面3.jpg" alt="">
+            <div class="firstbutton">
+                <!-- <p class="immediately">立即註冊EmoVest</p> -->
+                <button class="firstbtn0"><a href="#">錢包登入</a></button>
+            </div>
+        </div>
+    </div>
+    <div class="second">
+        <h1>熱門幣種</h1>
+        <div class="title">
+            <div class="name">
+                <h4>名稱</h4>
+            </div>
+            <div class="price">
+                <h4>價格</h4>
+            </div>
+        </div>
+        <div class="bitbox">
+            <div class="boxblank">
+                <script src="https://widgets.coingecko.com/coingecko-coin-list-widget.js"></script>
+                <coingecko-coin-list-widget coin-ids="bitcoin,ethereum,dogecoin,ripple,lunchdao,solana,adax,trx3l"
+                    currency="usd" locale="zh-tw"></coingecko-coin-list-widget>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer>
+    <div class="latestlayer">
+        <div class="content">
+            <h3>關於我們</h3>
+            <h4>商業聯絡</h4>
+            <h4>幣安資訊</h4>
+            <h4>服務協議</h4>
+            <h4>隱私說明</h4>
+            <h4>風險提示</h4>
+            <h4>Cookie偏好設定</h4>
+        </div>
+        <div class="content">
+            <h3>幫助</h3>
+            <h4>反饋及建議</h4>
+            <h4>幫助中心</h4>
+        </div>
+        <div class="content">
+            <h3>社群</h3>
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+        </div>
+    </div>
+    <div class="latest">
+        <p class=footerp>Copyright © Emovest108ab00</p>
+    </div>
+</footer>
+
+<!--載入jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--載入jQuery UI 1.11.4-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //登入註冊按鈕變色
+        $(".firstbtn").click(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+        $(".firstbtn").mouseenter(function () {
+            $(this).css("background-color", "#EED9BB");
+            $(this).css("cursor", "pointer");
+        })
+        $(".firstbtn").mouseleave(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+        $(".firstbtn0").click(function () {
+            $(this).css("background-color", "#E97000");
+        })
+        $(".firstbtn0").mouseenter(function () {
+            $(this).css("background-color", "#e58730");
+            $(this).css("cursor", "pointer");
+        })
+        $(".firstbtn0").mouseleave(function () {
+            $(this).css("background-color", "#E97000");
+        })
+        //導覽列變色
+        $(".navlink").click(function () {
+            $(this).css("color", "#FFFFF");
+        })
+        $(".navlink").mouseenter(function () {
+            $(this).css("color", "#FFFFF");
+            $(this).css("cursor", "pointer");
+        })
+        $(".navlink").mouseleave(function () {
+            $(this).css("color", "#000000");
+        })
+        //帳戶連結紐變色
+        $(".boxbtn").click(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+        $(".boxbtn").mouseenter(function () {
+            $(this).css("background-color", "#EED9BB");
+            $(this).css("cursor", "pointer");
+        })
+        $(".boxbtn").mouseleave(function () {
+            $(this).css("background-color", "#FFFFF");
+        })
+        $(".content h4").mouseenter(function () {
+            $(this).addClass("white")
+            $(this).addClass("big")
+        })
+        $(".content h4").mouseleave(function () {
+            $(this).removeClass("white")
+            $(this).removeClass("big")
+        })
+        $("#tab h3").mouseenter(function () {
+            $(this).addClass("orange")
+            $(this).addClass("big")
+        })
+        $("#tab h3").mouseleave(function () {
+            $(this).removeClass("orange")
+            $(this).removeClass("big")
+        })
+    })
+
+</script>
+
+</html>

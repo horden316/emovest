@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleinvest.css">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/27fa02f410.js" crossorigin="anonymous"></script>
+    <!--chart.js 套件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+        integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="scripts/main.js"></script>
+</head>
+<header>
+
+    <nav class="navbar">
+        <ul class="container0">
+            <li class="navitem">
+                <a class="logo" href="#">EmoVest</a>
+            </li>
+            <div class="usercontainer">
+                <a href="indexsignin.html"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </ul>
+        <ul class="container">
+            <li class="navitem">
+                <a class="navlink" href="indexhomepage.html">主頁</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexemotion.html">情緒儀表板</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink2" href="indexinvest.html">投資績效計算</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexmarket.html">市場行情</a>
+            </li>
+            <li class="navitem">
+                <a class="navlink" href="indexaccount.html">帳戶</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="firstlayer">
+        <div class="firstlayerl">
+            <div class="circle1">
+                <div class="chartcontainer">
+                    <div class="chart">
+                        <canvas id="myChart"></canvas>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="innertext">
+                        <h4>-3.72%</h4>
+                    </div>
+                </div>
+                <script>
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    const myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['成本', '損益'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [66, 34],
+                                backgroundColor: [
+                                    'rgba(54, 162, 235, 0.8)',
+                                    'rgba(255, 99, 132, 0.8)'
+                                ],
+                                borderColor: [
+                                    'rgba(54, 162, 235, 0.8)',
+                                    'rgba(255, 99, 132, 0.8)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <div class="circle2">
+                <div class="chartcontainer2">
+                    <div class="chart2">
+                        <canvas id="myChart2"></canvas>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+                <script>
+                    const ctx2 = document.getElementById('myChart2').getContext('2d');
+                    const myChart2 = new Chart(ctx2, {
+                        type: 'pie',
+                        data: {
+                            labels: ['BTN', 'SOL', 'ETH'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [70, 20, 10],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.8)',
+                                    'rgba(54, 162, 235, 0.8)',
+                                    'rgba(255, 206, 86, 0.8)'
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+            <div class="linecontainer">
+                <div class="vline">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="firstlayerr">
+            <div class="innertext2">
+                <h4 class="text1">虛擬貨幣市值：731 USTD</h4>
+                <br>
+                <h4 class="text2">總成本：759 USTD</h4>
+                <br>
+                <h4 class="text3">總損益：-27 USTD</h4>
+            </div>
+        </div>
+    </div>
+    <div class="vline2">
+        <hr>
+    </div>
+    <div class="secondlayer">
+        <div class="tab-demo">
+            <!-- tab標籤列 -->
+            <ul class="tab-title">
+                <li class="active">
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="one">週</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="two">月</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="three">半年</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="forth">一年</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- tab內容 -->
+            <div class="tab-inner-wrap">
+                <div id="one" class="tab-inner">
+                    <!-- tab1的內容 -->
+                    <h3>BTC USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>246.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="two" class="tab-inner">
+                    <!-- tab2的內容 -->
+                    <h3>BTC USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>255.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="three" class="tab-inner">
+                    <!-- tab3的內容 -->
+                    <h3>BTC USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>289.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="forth" class="tab-inner">
+                    <!-- tab3的內容 -->
+                    <h3>BTC USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>146.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+            </div>
+            <div class="blankbox"></div>
+        </div>
+
+        <div class="tab-demo">
+            <!-- tab標籤列 -->
+            <ul class="tab-title">
+                <li class="active">
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="other_one">週</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="other_two">月</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="other_three">半年</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="other_forth">一年</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- tab內容 -->
+            <div class="tab_inner_wrap">
+                <div id="other_one" class="tab-inner">
+                    <!-- tab1的內容 -->
+                    <h3>ETH USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>156.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="other_two" class="tab-inner">
+                    <!-- tab2的內容 -->
+                    <h3>ETH USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>246.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="other_three" class="tab-inner">
+                    <!-- tab3的內容 -->
+                    <h3>ETH USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>106.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="other_forth" class="tab-inner">
+                    <!-- tab3的內容 -->
+                    <h3>ETH USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>226.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+            </div>
+            <div class="blankbox"></div>
+        </div>
+
+        <div class="tab-demo">
+            <!-- tab標籤列 -->
+            <ul class="tab-title">
+                <li class="active">
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="another_one">週</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="another_two">月</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="another_three">半年</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="box">
+                        <a href="javascript:;" data-tablink="another_forth">一年</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- tab內容 -->
+            <div class="tab_inner_wrap">
+                <div id="another_one" class="tab-inner">
+                    <!-- tab1的內容 -->
+                    <h3>SOL USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>196.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="another_two" class="tab-inner">
+                    <!-- tab2的內容 -->
+                    <h3>SOL USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>190.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="another_three" class="tab-inner">
+                    <!-- tab3的內容 -->
+                    <h3>SOL USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>206.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+                <div id="another_forth" class="tab-inner">
+                    <!-- tab3的內容 -->
+                    <h3>SOL USDT永續</h3>
+                    <div class="text1">
+                        <p>每單位成本價</p>
+                        <p>147.00 USDT</p>
+                    </div>
+                    <div class="vline3">
+                        <hr>
+                    </div>
+                    <div class="text2">
+                        <div class="text2l">
+                            <p>漲跌</p>
+                            <p>損益</p>
+                            <p>歷史盈虧</p>
+                        </div>
+                        <div class="text2r">
+                            <p>0.83%</p>
+                            <p>1.72%</p>
+                            <p>543.29 USDT</p>
+                        </div>
+                    </div>
+                    <div class="pic">
+                        <img src="img/K線圖軟體2.jpeg">
+                    </div>
+                </div>
+            </div>
+            <div class="blankbox"></div>
+        </div>
+    </div>
+    <div class="vline2">
+        <hr>
+    </div>
+    <div class="morebit">
+        <a href="#">查詢更多幣種--></a>
+    </div>
+</body>
+<footer>
+    <div class="latestlayer">
+        <div class="content">
+            <h3>關於我們</h3>
+            <h4>商業聯絡</h4>
+            <h4>幣安資訊</h4>
+            <h4>服務協議</h4>
+            <h4>隱私說明</h4>
+            <h4>風險提示</h4>
+            <h4>Cookie偏好設定</h4>
+        </div>
+        <div class="content">
+            <h3>幫助</h3>
+            <h4>反饋及建議</h4>
+            <h4>幫助中心</h4>
+        </div>
+        <div class="content">
+            <h3>社群</h3>
+            <i class="fa-brands fa-square-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-square-twitter"></i>
+        </div>
+    </div>
+    <div class="latest">
+        <p class=footerp>Copyright © Emovest108ab00</p>
+    </div>
+</footer>
+<!--載入jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--載入jQuery UI 1.11.4-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //導覽列變色
+        $(".navlink").click(function () {
+            $(this).css("color", "#FFFFF");
+        })
+        $(".navlink").mouseenter(function () {
+            $(this).css("color", "#FFFFF");
+            $(this).css("cursor", "pointer");
+        })
+        $(".navlink").mouseleave(function () {
+            $(this).css("color", "#000000");
+        })
+        $("button").click(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+        $("button").mouseenter(function () {
+            $(this).css("background-color", "#EED9BB");
+            $(this).css("cursor", "pointer");
+        })
+        $("button").mouseleave(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+        $(".content h4").mouseenter(function () {
+            $(this).addClass("white")
+        })
+        $(".content h4").mouseleave(function () {
+            $(this).removeClass("white")
+        })
+        $(".tab-inner h3").mouseenter(function () {
+            $(this).addClass("orange")
+        })
+        $(".tab-inner h3").mouseleave(function () {
+            $(this).removeClass("orange")
+        })
+    })
+    $(document).ready(function () {
+        tabCutover();
+    });
+
+    /*錯誤版*/
+    function tabCutover1() {
+        var tablink = $(".tab-title li.active").find("a").data("tablink");
+
+        $('#' + tablink).show().siblings(".tab-inner").hide();
+
+        $(".tab-title li").click(function () {
+            $('#' + $(this).find("a").data("tablink")).show().siblings(".tab-inner").hide();
+            $(this).addClass("active").siblings(".active").removeClass("active");
+        });
+    }
+
+    /*tab 收合*/
+    function tabCutover() {
+
+        $(".tab-title li.active").each(function () {
+            var tablink = $(this).find("a").data("tablink");
+
+            $('#' + tablink).show().siblings(".tab-inner").hide();
+        });
+
+        $(".tab-title li").click(function () {
+            $('#' + $(this).find("a").data("tablink")).show().siblings(".tab-inner").hide();
+            $(this).addClass("active").siblings(".active").removeClass("active");
+        });
+    }
+</script>
+
+</html>
