@@ -25,7 +25,7 @@ def print_my_score_without_example(results):
 
 for j in range(len(coinsymbol)):
     path=basepath+"/SentimentAnalysis/data/"+coinsymbol[j]+".txt"
-    with open(basepath,"r") as f:
+    with open(path,"r") as f:
         examples = f.readlines()
 
 
