@@ -7,12 +7,14 @@ import tensorflow_text as text
 from official.nlp import optimization  # to create AdamW optimizer 優化算法
 
 import matplotlib.pyplot as plt #繪圖工具
-saved_model_path="/Users/horden/Desktop/coinmarket_bert"
+
+basepath=os.getcwd()
+saved_model_path = basepath+"/SentimentAnalysis/coinmarket_bert"
 reloaded_model = tf.saved_model.load(saved_model_path)
 
 coinsymbol=["BTC","ETH","BNB","XRP","DOGE","ADA","AVAX","TRX","SOL","DOT","LUNA"]
 
-basepath=os.getcwd()
+
 
 def print_my_score_without_example(results):
     result_for_printing = \
