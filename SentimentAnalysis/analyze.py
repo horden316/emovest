@@ -42,7 +42,7 @@ for j in range(len(coinsymbol)):
                             for i in range(len(reloaded_results))]
     #print(*result_for_printing, sep='\n')
 
-    mean = statistics.mean(result_for_printing)
+    mean = statistics.mean(float(result_for_printing))
     resultdict[coinsymbol]=mean
     
 print(resultdict)
