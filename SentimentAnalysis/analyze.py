@@ -50,5 +50,12 @@ for j in range(len(coinsymbol)):
     
 print(resultdict)
 
+import pymysql
+Coin = pymysql.connect(host='localhost', port=3306, user='root', passwd='', charset='utf8', db='analysis_result')
 
+with Coin.cursor() as cursor:
+    for r in resultdict.items():
+        cursor.execute("UPDATE result_score_ave SET Score="+ r[1] +" WHERE Symbol='"+r[0]+"'")
+        Coin.commit()
+Coin.close()
 
