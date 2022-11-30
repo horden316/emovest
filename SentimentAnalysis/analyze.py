@@ -10,19 +10,27 @@ import matplotlib.pyplot as plt #繪圖工具
 saved_model_path="/Users/horden/Desktop/coinmarket_bert"
 reloaded_model = tf.saved_model.load(saved_model_path)
 
-with open("/Users/horden/Documents/GitHub/emovest/SentimentAnalysis/AlltestNEG2080.txt","r") as f:
-    examples = f.readlines()
+coinsymbol=["BTC","ETH","BNB","XRP","DOGE","ADA","AVAX","TRX","SOL","DOT","LUNA"]
 
-
-reloaded_results = tf.sigmoid(reloaded_model(tf.constant(examples)))
-
-print('Results from the saved model:')
+basepath=os.getcwd()
 
 def print_my_score_without_example(results):
-  result_for_printing = \
-    [f'{results[i][0]:.6f}'
-                         for i in range(len(results))]
-  print(*result_for_printing, sep='\n')
-  print()
+    result_for_printing = \
+        [f'{results[i][0]:.6f}'
+                            for i in range(len(results))]
+    print(*result_for_printing, sep='\n')
+    print()
 
-print_my_score_without_example(reloaded_results)
+for j in range(len(coinsymbol)):
+    path=basepath+"/SentimentAnalysis/data/"+coinsymbol[j]+".txt"
+    with open(basepath,"r") as f:
+        examples = f.readlines()
+
+
+    reloaded_results = tf.sigmoid(reloaded_model(tf.constant(examples)))
+
+    print(coinsymbol +' Results from the saved model:')
+
+    
+
+    print_my_score_without_example(reloaded_results)
