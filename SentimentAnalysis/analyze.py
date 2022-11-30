@@ -9,6 +9,8 @@ from official.nlp import optimization  # to create AdamW optimizer 優化算法
 import matplotlib.pyplot as plt #繪圖工具
 
 import statistics
+import numpy as np
+
 
 basepath=os.getcwd()
 saved_model_path = basepath+"/SentimentAnalysis/coinmarket_bert"
@@ -42,7 +44,8 @@ for j in range(len(coinsymbol)):
                             for i in range(len(reloaded_results))]
     #print(*result_for_printing, sep='\n')
 
-    mean = statistics.mean(float(result_for_printing))
+    floatresult = list(np.float_(result_for_printing))
+    mean = statistics.mean(floatresult)
     resultdict[coinsymbol]=mean
     
 print(resultdict)
