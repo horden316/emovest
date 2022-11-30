@@ -46,7 +46,7 @@ for j in range(len(coinsymbol)):
 
     floatresult = list(np.float_(result_for_printing))
     mean = statistics.mean(floatresult)
-    resultdict[coinsymbol]=mean
+    resultdict[coinsymbol[j]]=mean
     
 print(resultdict)
 
