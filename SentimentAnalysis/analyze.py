@@ -31,7 +31,7 @@ for j in range(len(coinsymbol)):
 
     reloaded_results = tf.sigmoid(reloaded_model(tf.constant(examples)))
 
-    print(coinsymbol +' Results from the saved model:')
+    print(coinsymbol[j] +' Results from the saved model:')
 
     
 
