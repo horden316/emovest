@@ -37,33 +37,33 @@ while True:
         print(time.time())
         InitialTime=time.time()
 
-    for j in range(len(coinsymbol)):
-        path=basepath+"/SentimentAnalysis/data/"+coinsymbol[j]+".txt"
-        with open(path,"r") as f:
-            examples = f.readlines()
+        for j in range(len(coinsymbol)):
+            path=basepath+"/SentimentAnalysis/data/"+coinsymbol[j]+".txt"
+            with open(path,"r") as f:
+                examples = f.readlines()
 
 
-        reloaded_results = tf.sigmoid(reloaded_model(tf.constant(examples)))
+            reloaded_results = tf.sigmoid(reloaded_model(tf.constant(examples)))
 
-        print(coinsymbol[j] +' Results from the saved model:')
+            print(coinsymbol[j] +' Results from the saved model:')
 
-        result_for_printing = \
-            [f'{reloaded_results[i][0]:.6f}'
-                                for i in range(len(reloaded_results))]
-        #print(*result_for_printing, sep='\n')
+            result_for_printing = \
+                [f'{reloaded_results[i][0]:.6f}'
+                                    for i in range(len(reloaded_results))]
+            #print(*result_for_printing, sep='\n')
 
-        floatresult = list(np.float_(result_for_printing))
-        mean = statistics.mean(floatresult)
-        resultdict[coinsymbol[j]]=mean
-        
-    print(resultdict)
+            floatresult = list(np.float_(result_for_printing))
+            mean = statistics.mean(floatresult)
+            resultdict[coinsymbol[j]]=mean
+            
+        print(resultdict)
 
-    import pymysql
-    Coin = pymysql.connect(host='localhost', port=3306, user='root', passwd='', charset='utf8', db='analysis_result')
+        import pymysql
+        Coin = pymysql.connect(host='localhost', port=3306, user='root', passwd='', charset='utf8', db='analysis_result')
 
-    with Coin.cursor() as cursor:
-        for r in resultdict.items():
-            cursor.execute("UPDATE result_score_ave SET Score="+ str(r[1]) +" WHERE Symbol='"+str(r[0])+"'")
-            Coin.commit()
-    Coin.close()
+        with Coin.cursor() as cursor:
+            for r in resultdict.items():
+                cursor.execute("UPDATE result_score_ave SET Score="+ str(r[1]) +" WHERE Symbol='"+str(r[0])+"'")
+                Coin.commit()
+        Coin.close()
 
