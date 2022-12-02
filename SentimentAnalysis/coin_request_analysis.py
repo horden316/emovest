@@ -10,7 +10,7 @@ import os
 import requests
 import time
 
-InitialTime=time.time()-120
+InitialTime=time.time()-14400
 basepath=os.getcwd()
 
 while True:

@@ -29,7 +29,7 @@ resultdict={"BTC":0,"ETH":0,"BNB":0,"XRP":0,"ADA":0,"SOL":0,"DOGE":0,"DOT":0,"TR
 #     print(*result_for_printing, sep='\n')
 #     print()
 
-InitialTime=time.time()-120
+InitialTime=time.time()-14400
 
 while True:
     #四小時抓一次
