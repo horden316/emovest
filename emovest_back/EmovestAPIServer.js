@@ -35,10 +35,110 @@ function main() {
         function (err, rows, fields) {
           if (err) throw err;
           console.log("BTC score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"BTC", "score":' + rows[0].Score + "}");
         }
       );
-      res.writeHead(200, { "Content-type": "application/json" });
-      res.end('{"symbol":"BTC", "score":' + rows[0] + "}");
+    } else if (req.url == "/emoscoreETH" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="ETH"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("ETH score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"ETH", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreBNB" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="BNB"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("BNB score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"BNB", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreXRP" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="XRP"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("XRP score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"XRP", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreADA" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="ADA"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("ADA score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"ADA", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreSOL" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="SOL"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("SOL score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"SOL", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreDOGE" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="DOGE"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("DOGE score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"DOGE", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreDOT" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="DOT"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("DOT score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"DOT", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreTRX" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="TRX"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("TRX score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"TRX", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreAVAX" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="AVAX"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("AVAX score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"AVAX", "score":' + rows[0].Score + "}");
+        }
+      );
+    } else if (req.url == "/emoscoreLUNA" && req.method == "GET") {
+      connection.query(
+        'SELECT Score FROM result_score_ave WHERE Symbol="LUNA"',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("LUNA score is: ", rows[0]);
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end('{"symbol":"LUNA", "score":' + rows[0].Score + "}");
+        }
+      );
     }
   });
 
