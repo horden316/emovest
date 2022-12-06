@@ -13,6 +13,10 @@ var connection = mysql.createConnection({
 
 function main() {
   const server = http.createServer((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Request-Method", "*");
+    res.setHeader("Access-Control-Allow-Methods", "OPTIONS, GET");
+    res.setHeader("Access-Control-Allow-Headers", "*");
     console.log(req.headers);
     if (req.url == "/") {
       res.writeHead(200, { "Content-type": "text/plain" });
