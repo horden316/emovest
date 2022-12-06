@@ -66,4 +66,5 @@ while True:
                 cursor.execute("UPDATE result_score_ave SET Score="+ str(r[1]) +" WHERE Symbol='"+str(r[0])+"'")
                 Coin.commit()
         Coin.close()
-
+    #沒到時間的時候讓執行緒idle省資源
+    time.sleep(1800)

@@ -57,4 +57,6 @@ while True:
                     
                     except:
                         print("expect")
+    #沒到時間的時候讓執行緒idle省資源
+    time.sleep(1800)
 
