@@ -61,6 +61,9 @@
 
   <!-- Chart code -->
   <script>
+
+    let emoScore=0//全域變數
+
     am5.ready(function () {
 
       // Create root element
@@ -130,7 +133,9 @@
         fontSize: "1em"
       }));
 
-      axisDataItem.set("value", 50);
+      var symbol = document.getElementById('SymbolIndex');
+
+      axisDataItem.set("value", 0);
       bullet.get("sprite").on("rotation", function () {
         var value = axisDataItem.get("value");
         var text = Math.round(axisDataItem.get("value")).toString();
@@ -141,7 +146,21 @@
           }
         })
 
-        label.set("text", Math.round(value).toString());
+
+
+        fetch('http://34.81.139.175:45001/emoscoreBTC')
+                .then((response) => {
+                  return response.json();
+                })
+                .then( (response) => {
+                  emoScore=response.score;
+                  label.set("text", Math.round(emoScore*1000)/10);
+                })
+                .catch((error) => {
+                  console.log(`Error: ${error}`);
+                })
+
+
 
         clockHand.pin.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
         clockHand.hand.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
@@ -150,7 +169,7 @@
       setInterval(function () {
         axisDataItem.animate({
           key: "value",
-          to: 53,
+          to: emoScore*100, //分數設定在這裡！！！
           duration: 500,
           easing: am5.ease.out(am5.ease.cubic)
         });
@@ -244,7 +263,24 @@
   </script>
 
   <!-- HTML -->
+  <div>
+    <select id="SymbolIndex" >
+      <option value="btc" selected >BTC</option>
+      <option value="eth">ETH</option>
+      <option value="bnb">BNB</option>
+      <option value="xrp">XRP</option>
+      <option value="ada">ADA</option>
+      <option value="sol">SOL</option>
+      <option value="doge">DOGE</option>
+      <option value="dot">DOT</option>
+      <option value="trx">TRX</option>
+      <option value="avax">AVAX</option>
+      <option value="luna">LUNA</option>
+    </select>
+
   <div id="chartdiv"></div>
+
+  </div>
 </body>
 <footer>
   <div class="latestlayer">
