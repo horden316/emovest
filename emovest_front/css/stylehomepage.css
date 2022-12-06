@@ -141,11 +141,21 @@ li {
     margin-left: 100px;
 }
 
-.firstbutton {
+.intro {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     height: 350px;
+    width: 400px;
+}
+
+.intro p {
+    font-style: italic;
+    font-size: 0.7em;
+    line-height: 2em;
+    word-spacing: 20px;
+    color: #432B0F;
 }
 
 .firstbtn0 {
@@ -156,16 +166,6 @@ li {
     border-radius: 10px;
     font-size: 0.5em;
     color: white;
-}
-
-.firstbtn {
-    width: 450px;
-    height: 50px;
-    background-color: #F0C994;
-    border: none;
-    border-radius: 10px;
-    font-size: 0.5em;
-    color: #432B0F;
 }
 
 .fa-google,
