@@ -63,6 +63,22 @@
   <script>
 
     let emoScore=0//全域變數
+    function SymbolFetch(){
+      var objS = document.getElementById("SymbolIndex");
+      var symbol = "BTC";
+      symbol = objS.options[objS.selectedIndex].value;
+
+      fetch('http://34.81.139.175:45001/emoscore'+symbol)
+              .then((response) => {
+                return response.json();
+              })
+              .then( (response) => {
+                emoScore=response.score;
+              })
+              .catch((error) => {
+                console.log(`Error: ${error}`);
+              })
+    }
 
     am5.ready(function () {
 
@@ -146,19 +162,8 @@
           }
         })
 
-
-
-        fetch('http://34.81.139.175:45001/emoscoreBTC')
-                .then((response) => {
-                  return response.json();
-                })
-                .then( (response) => {
-                  emoScore=response.score;
-                  label.set("text", Math.round(emoScore*1000)/10);
-                })
-                .catch((error) => {
-                  console.log(`Error: ${error}`);
-                })
+        SymbolFetch();
+        label.set("text", Math.round(emoScore*1000)/10);
 
 
 
@@ -264,18 +269,18 @@
 
   <!-- HTML -->
   <div>
-    <select id="SymbolIndex" >
-      <option value="btc" selected >BTC</option>
-      <option value="eth">ETH</option>
-      <option value="bnb">BNB</option>
-      <option value="xrp">XRP</option>
-      <option value="ada">ADA</option>
-      <option value="sol">SOL</option>
-      <option value="doge">DOGE</option>
-      <option value="dot">DOT</option>
-      <option value="trx">TRX</option>
-      <option value="avax">AVAX</option>
-      <option value="luna">LUNA</option>
+    <select id="SymbolIndex" onchange="SymbolFetch()" >
+      <option value="BTC" selected >BTC</option>
+      <option value="ETH">ETH</option>
+      <option value="BNB">BNB</option>
+      <option value="XRP">XRP</option>
+      <option value="ADA">ADA</option>
+      <option value="SOL">SOL</option>
+      <option value="DOGE">DOGE</option>
+      <option value="DOT">DOT</option>
+      <option value="TRX">TRX</option>
+      <option value="AVAX">AVAX</option>
+      <option value="LUNA">LUNA</option>
     </select>
 
   <div id="chartdiv"></div>
