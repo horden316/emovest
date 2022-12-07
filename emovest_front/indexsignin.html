@@ -145,14 +145,12 @@
                     address = result[0];
                     alert('錢包連接成功，地址為'+address);
 
-                    var hexData = window.web3.utils.utf8ToHex("nonce");
+                    var hexData = window.web3.utils.utf8ToHex("Welcome to Emovest");
 
                     window.web3.eth.personal.sign(hexData, address, function(result, signature){
-                        alert(result);
-                        console.log(result); // 結果
+                        //alert(signature);
                         console.log(signature); // Signature
                     })
-
                 }).catch((error) => {
                     console.log("error",error);
                 });
