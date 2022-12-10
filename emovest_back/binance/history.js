@@ -184,7 +184,7 @@ async function history(address) {
             UpAndDown: UpAndDown,
             ProfitAndLoss: ProfitAndLoss,
             ProfitAndLossAmount: ProfitAndLossAmount,
-            time: dateTime,
+            time: timestamp,
           })
         )
       );
