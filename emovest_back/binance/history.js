@@ -57,14 +57,17 @@ async function history(address) {
       getHistoryTradeData(AllSymbol[k]);
     }
 
+    var time = [604800, 2678400, 15768000, 31536000];
     setTimeout(function () {
-      for (var k = 0; k < AllSymbol.length; k++) {
-        main(AllSymbol[k], 31536000)
-          .then(() => process.exit(0))
-          .catch((error) => {
-            console.error(error);
-            process.exit(1);
-          });
+      for (var j = 0; j < time.length; j++) {
+        for (var k = 0; k < AllSymbol.length; k++) {
+          main(AllSymbol[k], time[j])
+            .then(() => process.exit(0))
+            .catch((error) => {
+              console.error(error);
+              process.exit(1);
+            });
+        }
       }
     }, 10000);
 
@@ -190,7 +193,7 @@ async function history(address) {
 
       if ((i = ALLOrder.length)) {
         fs.writeFileSync(
-          "./conclusion.json",
+          "./" + ViewTime + "conclusion.json",
           JSON.stringify(data),
           function (error) {
             if (error != null) {
