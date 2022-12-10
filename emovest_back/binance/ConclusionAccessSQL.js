@@ -1,4 +1,13 @@
 async function ConclusionAccessSQL(address) {
+  var mysql = require("mysql");
+  require("dotenv").config();
+  var connect = mysql.createConnection({
+    host: process.env.sql_host,
+    user: process.env.sql_user,
+    password: process.env.sql_password,
+    database: process.env.sql_trans_database,
+  });
+
   connect.query(
     "DELETE FROM trans_data WHERE `address`= '" + address + "';",
     function (err, result) {
