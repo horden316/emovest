@@ -57,7 +57,7 @@ async function history(address) {
       getHistoryTradeData(AllSymbol[k]);
     }
     const AllTime = Date.now();
-    var time = [604800000, 2678400000, 15768000000, 31536000000, AllTime];
+    var time = [604800000, 2678400000, 15768000000, 31536000000, 99999999999];
     setTimeout(function () {
       for (var j = 0; j < time.length; j++) {
         for (var k = 0; k < AllSymbol.length; k++) {
@@ -176,6 +176,7 @@ async function history(address) {
       data.push(
         JSON.parse(
           JSON.stringify({
+            Address: address,
             Symbol: TradingPair,
             TotalQuan: TotalQuan,
             TotalSpend: TotalSpend,
@@ -185,6 +186,7 @@ async function history(address) {
             ProfitAndLoss: ProfitAndLoss,
             ProfitAndLossAmount: ProfitAndLossAmount,
             time: timestamp,
+            viewtime: ViewTime,
           })
         )
       );
