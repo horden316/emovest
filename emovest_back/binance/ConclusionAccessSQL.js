@@ -1,6 +1,7 @@
 async function ConclusionAccessSQL(address) {
   var mysql = require("mysql");
   require("dotenv").config();
+  var fs = require("fs");
   var connect = mysql.createConnection({
     host: process.env.sql_host,
     user: process.env.sql_user,
