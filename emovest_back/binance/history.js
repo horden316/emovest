@@ -56,8 +56,8 @@ async function history(address) {
     for (var k = 0; k < AllSymbol.length; k++) {
       getHistoryTradeData(AllSymbol[k]);
     }
-
-    var time = [604800, 2678400, 15768000, 31536000];
+    const AllTime = Date.now();
+    var time = [604800000, 2678400000, 15768000000, 31536000000, AllTime];
     setTimeout(function () {
       for (var j = 0; j < time.length; j++) {
         for (var k = 0; k < AllSymbol.length; k++) {
@@ -118,8 +118,7 @@ async function history(address) {
       );
       const LatestPrice = getLatestPrice[TradingPair];
 
-      const dateTime = Date.now();
-      const timestamp = Math.floor(dateTime / 1000);
+      const timestamp = Date.now();
 
       var TransactionTime = 0; //交易次數
       var TotalSpend = 0; //每單的價格*數量相加
