@@ -49,7 +49,20 @@ async function ConclusionAccessSQL(address) {
       var RecordTime = conclusion[a][b].time;
       var ViewTime = conclusion[a][b].ViewTime;
       connect.query(
-        `INSERT INTO trans_data (Address, Symbol, TotalQuan, TotalSpend, LatestPrice, AvgCost, UpAndDown, ProfitAndLoss, ProfitAndLossAmount, RecordTime, ViewTime) VALUES ("${Address}", "${Symbol}", ${TotalQuan}, ${TotalSpend}, ${LatestPrice}, ${AvgCost}, ${UpAndDown}, ${ProfitAndLoss}, ${ProfitAndLossAmount}, ${RecordTime}, ${ViewTime})`,
+        `INSERT INTO trans_data (Address, Symbol, TotalQuan, TotalSpend, LatestPrice, AvgCost, UpAndDown, ProfitAndLoss, ProfitAndLossAmount, RecordTime, ViewTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [
+          Address,
+          Symbol,
+          TotalQuan,
+          TotalSpend,
+          LatestPrice,
+          AvgCost,
+          UpAndDown,
+          ProfitAndLoss,
+          ProfitAndLossAmount,
+          RecordTime,
+          ViewTime,
+        ],
         function (err, result) {
           if (err) throw err;
           console.log("INSERT FINISH.");
