@@ -14,10 +14,13 @@ var Key = "";
 var Secret = "";
 
 connection.query(
-  "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`=", //地址填這裡！！！
+  "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`=''", //地址填這裡！！！
   function (err, rows, fields) {
     if (err) throw err;
-    console.log(rows);
+    Key = rows[0].BinanceKEY;
+    Secret = rows[0].BinanceSECRET;
+    console.log(Key);
+    console.log(Secret);
   }
 );
 
@@ -39,7 +42,10 @@ getLatestPrice();
 async function getLatestPrice() {
   let ticker = await binance.prices();
   // console.info(ticker);
-  fs.writeFileSync("./Json/getLatestPrice.json", JSON.stringify(ticker));
+  fs.writeFileSync(
+    "./emovest_back/binance/Json/getLatestPrice.json",
+    JSON.stringify(ticker)
+  );
 }
 
 //讀取symbol.json，呼叫getHistoryTradeData
@@ -63,7 +69,7 @@ setTimeout(function () {
 //   console.log(orders.length)
 // });
 
-//向Binance取得各幣種的history trade的數據，並將有交易紀錄存取到./Json路徑下
+//向Binance取得各幣種的history trade的數據，並將有交易紀錄存取到./emovest_back/binance/Json路徑下
 async function getHistoryTradeData(symbol) {
   await binance.allOrders(symbol, (error, orders, symbol) => {
     // console.info(symbol+" orders:", orders);
@@ -71,7 +77,7 @@ async function getHistoryTradeData(symbol) {
 
     if (orders.length > 0) {
       fs.writeFileSync(
-        "./Json/" + symbol + ".json",
+        "./emovest_back/binance/Json/" + symbol + ".json",
         JSON.stringify(orders),
         function (error) {
           if (error != null) {
@@ -98,10 +104,10 @@ async function main(symbolname, period) {
 async function getAveragePrice(TradingPair, ViewTime) {
   //傳入要算的交易對的名稱, 還有要觀察的時間（用UnixTime）
   const ALLOrder = JSON.parse(
-    fs.readFileSync("./Json/" + TradingPair + ".json")
+    fs.readFileSync("./emovest_back/binance/Json/" + TradingPair + ".json")
   );
   const getLatestPrice = JSON.parse(
-    fs.readFileSync("./Json/getLatestPrice.json")
+    fs.readFileSync("./emovest_back/binance/Json/getLatestPrice.json")
   );
   const LatestPrice = getLatestPrice[TradingPair];
 
