@@ -1,4 +1,4 @@
-async function history() {
+async function history(address) {
   const Binance = require("node-binance-api");
   const path = require("path");
   var mysql = require("mysql");
@@ -15,7 +15,8 @@ async function history() {
   var Secret = "";
 
   connection.query(
-    "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`=''", //地址填這裡！！！
+    "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`=" +
+      address, //地址填這裡！！！
     function (err, rows, fields) {
       if (err) throw err;
       Key = rows[0].BinanceKEY;
