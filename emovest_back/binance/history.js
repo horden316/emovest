@@ -193,7 +193,7 @@ async function history(address) {
 
       if ((i = ALLOrder.length)) {
         fs.writeFileSync(
-          "./" + ViewTime + "conclusion.json",
+          "./emovest_back/binance/" + ViewTime + "conclusion.json",
           JSON.stringify(data),
           function (error) {
             if (error != null) {
