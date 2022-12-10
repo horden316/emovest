@@ -47,9 +47,9 @@ async function ConclusionAccessSQL(address) {
       var ProfitAndLoss = conclusion[a][b].ProfitAndLoss;
       var ProfitAndLossAmount = conclusion[a][b].ProfitAndLossAmount;
       var RecordTime = conclusion[a][b].time;
-      var ViewTime = conclusion[a][b].ViewTime;
+      var ViewTime = conclusion[a][b].viewtime;
       connect.query(
-        `INSERT INTO trans_data (Address, Symbol, TotalQuan, TotalSpend, LatestPrice, AvgCost, UpAndDown, ProfitAndLoss, ProfitAndLossAmount, RecordTime, ViewTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO trans_data (Address, Symbol, TotalQuan, TotalSpend, LatestPrice, AvgCost, UpAndDown, ProfitAndLoss, ProfitAndLossAmount, RecordTime, ViewTime) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           Address,
           Symbol,
