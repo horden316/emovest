@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   host: process.env.sql_host,
   user: process.env.sql_user,
   password: process.env.sql_password,
-  database: process.env.sql_database,
+  database: process.env.sql_trans_database,
 });
 
 var Key = "";
