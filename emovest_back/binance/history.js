@@ -13,10 +13,11 @@ async function history(address) {
 
   var Key = "";
   var Secret = "";
-
+  console.log(address);
   connection.query(
-    "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`=" +
-      address, //地址填這裡！！！
+    "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`='" +
+      address +
+      "'", //地址填這裡！！！
     function (err, rows, fields) {
       if (err) throw err;
       Key = rows[0].BinanceKEY;
