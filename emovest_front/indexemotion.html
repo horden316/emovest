@@ -73,7 +73,7 @@
                 return response.json();
               })
               .then( (response) => {
-                emoScore=response.score;
+                emoScore=2*(response.score*100)-100;
               })
               .catch((error) => {
                 console.log(`Error: ${error}`);
@@ -163,7 +163,7 @@
         })
 
         SymbolFetch();
-        label.set("text", Math.round(emoScore*1000)/10);
+        label.set("text", Math.round(emoScore));
 
 
 
@@ -174,7 +174,7 @@
       setInterval(function () {
         axisDataItem.animate({
           key: "value",
-          to: emoScore*100, //分數設定在這裡！！！
+          to: emoScore, //分數設定在這裡！！！
           duration: 500,
           easing: am5.ease.out(am5.ease.cubic)
         });

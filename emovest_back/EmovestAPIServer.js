@@ -143,6 +143,10 @@ function main() {
           res.end('{"symbol":"LUNA", "score":' + rows[0].Score + "}");
         }
       );
+    } else if (req.url == "/WalletSig" && req.method == "POST") {
+      const AccountMessage = req.body;
+      console.log(AccountMessage.Address + "   " + AccountMessage.Signature);
+      res.send({ success: true }).end();
     }
   });
 
