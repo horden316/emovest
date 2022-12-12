@@ -18,7 +18,7 @@
     <nav class="navbar">
         <ul class="container0">
             <li class="navitem">
-                <a class="logo animate__animated animate__bounce">EmoVest</a>  
+                <a class="logo animate__animated animate__bounce">EmoVest</a>
             </li>
             <div class="usercontainer">
                 <a href="indexsignin.html"><i class="fa-solid fa-user"></i></a>
@@ -48,11 +48,22 @@
     <div class="card_product_page">
         <!--遮罩-->
         <div class="card_product">
-            <!--產品介紹-->
+            <!--帳戶連結-->
             <i class="fa-solid fa-square-xmark productCross"></i>
+            <h1 class="cardtitle">帳戶連結</h1>
             <div class="cardText">
-                <p>APTKey:</p><input type="text" class="apikey">
-                <p>APISecret:</p><input type="text" class="apisecret">
+                <p>APIKEY:</p><input type="text" class="apikey">
+                <p>APISECRET:</p><input type="text" class="apisecret">
+            </div>
+            <button class="submit">提交</button>
+        </div>
+        <div class="card_set">
+            <!--設定-->
+            <i class="fa-solid fa-square-xmark productCross2"></i>
+            <h1 class="cardtitle">設定</h1>
+            <div class="cardText">
+                <p>APIKEY:</p><input type="text" class="apikey">
+                <p>APISECRET:</p><input type="text" class="apisecret">
             </div>
             <button class="submit">提交</button>
         </div>
@@ -124,7 +135,7 @@
                     <h6 class="boxname">Binance</h6>
                 </div>
                 <hr class="boxline">
-                <button class="boxbtn">設定</button>
+                <button class="boxbtn2">設定</button>
             </div>
             <div class="bitbox2">
                 <div class="boxtitle">
@@ -132,7 +143,7 @@
                     <h6 class="boxname">FTX</h6>
                 </div>
                 <hr class="boxline">
-                <button class="boxbtn">設定</button>
+                <button class="boxbtn2">設定</button>
             </div>
             <div class="bitboxblank"></div>
         </div>
@@ -175,17 +186,7 @@
     $(document).ready(function () {
         $(".card_product_page").hide();
         $(".card_product").hide();
-        //登入註冊按鈕變色
-        $(".btn").click(function () {
-            $(this).css("background-color", "#F0C994");
-        })
-        $(".btn").mouseenter(function () {
-            $(this).css("background-color", "#EED9BB");
-            $(this).css("cursor", "pointer");
-        })
-        $(".btn").mouseleave(function () {
-            $(this).css("background-color", "#F0C994");
-        })
+        $(".card_set").hide();
         //導覽列變色
         $(".navlink").click(function () {
             $(this).css("color", "#FFFFF");
@@ -206,6 +207,17 @@
             $(this).css("cursor", "pointer");
         })
         $(".boxbtn").mouseleave(function () {
+            $(this).css("background-color", "#FFFFF");
+        })
+
+        $(".boxbtn2").click(function () {
+            $(this).css("background-color", "#F0C994");
+        })
+        $(".boxbtn2").mouseenter(function () {
+            $(this).css("background-color", "#EED9BB");
+            $(this).css("cursor", "pointer");
+        })
+        $(".boxbtn2").mouseleave(function () {
             $(this).css("background-color", "#FFFFF");
         })
         //提交鈕變色
@@ -246,6 +258,30 @@
             $(".card_product_page").css({ "background-color": "transparent" });
             $(".card_product_page").toggle();
             $(".card_product").toggle();
+        })
+        $(".boxbtn2").click(function () {
+            $(".card_product_page").toggle();
+            $(".card_product_page").css({ "background-color": "rgba(0, 0, 0, 0.3);" });
+            $(".card_set").toggle();
+        })
+
+        $(".productCross2").click(function () {
+            $(".card_product_page").css({ "background-color": "transparent" });
+            $(".card_product_page").toggle();
+            $(".card_set").toggle();
+        })
+
+        $(".apikey").click(function () {
+            $(this).css("border-color", "#F0C994")
+        })
+        $(".apikey").blur(function () {
+            $(this).css("border-color", "#ced4da")
+        })
+        $(".apisecret").click(function () {
+            $(this).css("border-color", "#F0C994")
+        })
+        $(".apisecret").blur(function () {
+            $(this).css("border-color", "#ced4da")
         })
     })
 
