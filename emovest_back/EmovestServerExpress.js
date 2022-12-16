@@ -12,16 +12,17 @@ var connection = mysql.createConnection({
   database: process.env.sql_database,
 });
 
-app.get("/", function (req, res) {
-  res.send("hello world");
-});
+function main() {
+  app.get("/", function (req, res) {
+    res.send("hello world");
+  });
 
-app.post("/WalletSig", function (req, res) {
-  console.log(req.query.id);
-  console.log(req.body.name);
-  console.log(req.body.tel);
-});
+  app.post("/WalletSig", function (req, res) {
+    console.log(req.query.id);
+    console.log(req.body.name);
+    console.log(req.body.tel);
+  });
 
-app.listen(port);
-
+  app.listen(port);
+}
 main();
