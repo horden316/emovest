@@ -61,6 +61,25 @@
 
   <!-- Chart code -->
   <script>
+
+    let emoScore=0//全域變數
+    function SymbolFetch(){
+      var objS = document.getElementById("SymbolIndex");
+      var symbol = "BTC";
+      symbol = objS.options[objS.selectedIndex].value;
+
+      fetch('http://34.81.139.175:45001/emoscore'+symbol)
+              .then((response) => {
+                return response.json();
+              })
+              .then( (response) => {
+                emoScore=2*(response.score*100)-100;
+              })
+              .catch((error) => {
+                console.log(`Error: ${error}`);
+              })
+    }
+
     am5.ready(function () {
 
       // Create root element
@@ -130,7 +149,9 @@
         fontSize: "1em"
       }));
 
-      axisDataItem.set("value", 50);
+      var symbol = document.getElementById('SymbolIndex');
+
+      axisDataItem.set("value", 0);
       bullet.get("sprite").on("rotation", function () {
         var value = axisDataItem.get("value");
         var text = Math.round(axisDataItem.get("value")).toString();
@@ -141,7 +162,10 @@
           }
         })
 
-        label.set("text", Math.round(value).toString());
+        SymbolFetch();
+        label.set("text", Math.round(emoScore));
+
+
 
         clockHand.pin.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
         clockHand.hand.animate({ key: "fill", to: fill, duration: 500, easing: am5.ease.out(am5.ease.cubic) })
@@ -150,7 +174,7 @@
       setInterval(function () {
         axisDataItem.animate({
           key: "value",
-          to: 53,
+          to: emoScore, //分數設定在這裡！！！
           duration: 500,
           easing: am5.ease.out(am5.ease.cubic)
         });
@@ -244,7 +268,24 @@
   </script>
 
   <!-- HTML -->
+  <div>
+    <select id="SymbolIndex" onchange="SymbolFetch()" >
+      <option value="BTC" selected >BTC</option>
+      <option value="ETH">ETH</option>
+      <option value="BNB">BNB</option>
+      <option value="XRP">XRP</option>
+      <option value="ADA">ADA</option>
+      <option value="SOL">SOL</option>
+      <option value="DOGE">DOGE</option>
+      <option value="DOT">DOT</option>
+      <option value="TRX">TRX</option>
+      <option value="AVAX">AVAX</option>
+      <option value="LUNA">LUNA</option>
+    </select>
+
   <div id="chartdiv"></div>
+
+  </div>
 </body>
 <footer>
   <div class="latestlayer">

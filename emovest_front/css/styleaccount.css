@@ -156,7 +156,7 @@ li {
     color: #432B0F;
 }
 
-.boxbtn {
+.boxbtn, .boxbtn2 {
     border: 1px solid #432B0F;
     border-radius: 15px;
     height: 30px;
@@ -205,13 +205,13 @@ li {
     position: absolute;
     z-index: 9;
     width: 100%;
-    height: 850px;
+    height: 851px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.card_product {
+.card_product, .card_set {
     z-index: 99;
     background-color: #FFFFFF;
     width: 600px;
@@ -228,39 +228,56 @@ li {
     transition: .1s;
 }
 
-.fa-square-xmark:hover {
+/* .fa-square-xmark:hover {
     cursor: pointer;
 }
 
 .fa-square-xmark:active {
     transform: scale(0.9);
+} */
+
+.cardtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 30px;
 }
 
 .cardText {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 30px;
+    margin-bottom: 20px;
 }
 
 .cardText p {
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 40px;
+    letter-spacing: 3px;
+    color: #432B0F;
 }
+
 .submit {
     border: 1px solid #432B0F;
     border-radius: 15px;
-    height: 30px;
-    width: 100px;
+    height: 25px;
+    width: 80px;
     background-color: white;
-    margin-left: 30px;
+    margin-left: 40px;
     margin-right: auto;
 }
+
 .apikey,
 .apisecret {
+    align-self: center;
     margin-top: 10px;
-    width: 500px;
+    width: 520px;
     height: 20px;
+    outline: none;
+    /* 不要有藍框*/
+    border: 2px solid #ced4da;
 }
 
 /*下半部*/
