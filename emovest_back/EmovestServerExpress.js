@@ -166,14 +166,26 @@ function main() {
 
   app.get("/emoInvestYear", function (req, res) {
     connectionInvest.query(
-      //'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 31536000000',
-      'SELECT Symbol, COALESCE(TotalSpend,0) AS SequenceData FROM Trans_data ORDER BY SequenceData DESC WHERE Adress = "" && ViewTime = 31536000000',
+      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 31536000000',
       function (err, rows, fields) {
         if (err) throw err;
         console.log("The period is Year");
         res.writeHead(222, { "Content-type": "application/json" });
-        res.end(rows);
-        console.log(rows);
+        res.end(JSON.stringify(rows));
+        console.log(JSON.stringify(rows));
+      }
+    );
+  });
+
+  app.get("/emoInvestHalfYear", function (req, res) {
+    connectionInvest.query(
+      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 99999999999',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("The period is Year");
+        res.writeHead(222, { "Content-type": "application/json" });
+        res.end(JSON.stringify(rows));
+        console.log(JSON.stringify(rows));
       }
     );
   });
