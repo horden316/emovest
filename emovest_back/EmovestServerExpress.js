@@ -165,8 +165,8 @@ function main() {
   /////////////
 
   app.get("/emoInvestYear", function (req, res) {
-    connection.query(
-      'SELECT * FROM Trans_data WHERE Adress = "" AND ViewTime = 31536000000',
+    connectionInvest.query(
+      'SELECT * FROM trans_data WHERE Adress = "" AND ViewTime = 31536000000',
       function (err, rows, fields) {
         if (err) throw err;
         console.log("The period is Year");
