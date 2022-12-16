@@ -23,9 +23,8 @@ function main() {
   });
 
   app.post("/WalletSig", urlencodedParser, function (req, res) {
-    console.log(req.query.id);
-    console.log(req.body.name);
-    console.log(req.body.tel);
+    console.log(req.body.Address);
+    console.log(req.body.Signature);
   });
 
   app.listen(port);
