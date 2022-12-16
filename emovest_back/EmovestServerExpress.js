@@ -14,6 +14,7 @@ var connection = mysql.createConnection({
 });
 
 function main() {
+  app.use(cors());
   app.get("/", function (req, res) {
     res.send("hello world");
   });
