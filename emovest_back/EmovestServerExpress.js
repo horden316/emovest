@@ -22,6 +22,138 @@ function main() {
     res.send("hello world");
   });
 
+  app.get("emoscoreBTC", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="BTC"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("BTC score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"BTC", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreETH", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="ETH"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("ETH score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"ETH", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreBNB", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="BNB"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("BNB score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"BNB", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreXRP", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="XRP"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("XRP score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"XRP", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreADA", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="ADA"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("ADA score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"ADA", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreSOL", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="SOL"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("SOL score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"SOL", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreDOGE", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="DOGE"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("DOGE score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"DOGE", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreDOT", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="DOT"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("DOT score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"DOT", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreTRX", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="TRX"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("TRX score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"TRX", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreAVAX", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="AVAX"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("AVAX score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"AVAX", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
+  app.get("/emoscoreLUNA", function (req, res) {
+    connection.query(
+      'SELECT Score FROM result_score_ave WHERE Symbol="LUNA"',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("LUNA score is: ", rows[0]);
+        res.writeHead(200, { "Content-type": "application/json" });
+        res.end('{"symbol":"LUNA", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+
   app.post("/WalletSig", urlencodedParser, function (req, res) {
     console.log(req.body.Address);
     console.log(req.body.Signature);
