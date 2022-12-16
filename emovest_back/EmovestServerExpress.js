@@ -16,13 +16,20 @@ var connection = mysql.createConnection({
   database: process.env.sql_database,
 });
 
+var connectionInvest = mysql.createConnection({
+  host: process.env.sql_host,
+  user: process.env.sql_user,
+  password: process.env.sql_password,
+  database: process.env.sql_trans_database,
+});
+
 function main() {
   app.use(cors());
   app.get("/", function (req, res) {
     res.send("hello world");
   });
 
-  app.get("emoscoreBTC", function (req, res) {
+  app.get("/emoscoreBTC", function (req, res) {
     connection.query(
       'SELECT Score FROM result_score_ave WHERE Symbol="BTC"',
       function (err, rows, fields) {
@@ -150,6 +157,22 @@ function main() {
         console.log("LUNA score is: ", rows[0]);
         res.writeHead(200, { "Content-type": "application/json" });
         res.end('{"symbol":"LUNA", "score":' + rows[0].Score + "}");
+      }
+    );
+  });
+  /////////////
+  //invest
+  /////////////
+
+  app.get("/emoInvestYear", function (req, res) {
+    connection.query(
+      'SELECT * FROM Trans_data WHERE Adress = "" AND ViewTime = 31536000000',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("The period is Year");
+        res.writeHead(222, { "Content-type": "application/json" });
+        res.end(rows);
+        console.log(rows);
       }
     );
   });
