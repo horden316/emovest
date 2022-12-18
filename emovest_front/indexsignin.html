@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/27fa02f410.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/stylesignin.css">
 </head>
@@ -51,7 +52,7 @@
             <h1>錢包登入</h1>
             <!-- <input type="email" class="inputbox" placeholder="輸入電子郵件">
             <input type="password" class="inputbox" placeholder="輸入密碼"> -->
-            <button class="signin animate__animated animate__tada"><a href="#">登入</a></button>
+            <button class="signin animate__animated animate__tada" id="signinBtn"><a href="#">登入</a></button>
             <!-- <a href="#" class="function">註冊帳號・忘記密碼？</a> -->
         </div>
     </div>
@@ -137,6 +138,42 @@
             $(this).removeClass("orange")
             $(this).removeClass("big")
         })
+
+        $("#signinBtn").button().click(function () {
+            if (window.web3) {
+                window.web3 = new Web3(window.web3.currentProvider);
+                ethereum.request({ method: 'eth_requestAccounts' }).then((result) =>               {
+                    address = result[0];
+                    alert('錢包連接成功，地址為'+address);
+
+                    var hexData = window.web3.utils.utf8ToHex("Welcome to Emovest");
+
+                    window.web3.eth.personal.sign(hexData, address, function(result, signature){
+                        //alert(signature);
+                        console.log(signature); // Signature
+                        fetch('http://34.81.139.175:45001/WalletSig',{
+                            //body:JSON.stringify({"Address":address, "Signature":signature}),
+                            body:("{'Address':'12'}"),
+                            cache: 'no-cache',
+                            credentials: 'same-origin',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            method: 'POST',
+                        })
+                            .then((response) => {
+                                return response.json();
+                            })
+                    })
+                }).catch((error) => {
+                    console.log("error",error);
+                });
+            } else {
+                alert( '沒有安裝錢包' );
+            }
+        })
+
+
     })
 
 </script>
