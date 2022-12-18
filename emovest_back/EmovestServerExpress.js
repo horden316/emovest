@@ -166,7 +166,8 @@ function main() {
 
   app.get("/emoInvestYear", function (req, res) {
     connectionInvest.query(
-      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 31536000000',
+      //還沒把Address拿出來
+      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 31536000000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
       function (err, rows, fields) {
         if (err) throw err;
         console.log("The period is Year");
