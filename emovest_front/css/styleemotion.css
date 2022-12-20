@@ -93,11 +93,6 @@ li {
     border-radius: 100%;
 }
 
-.signinbtn,
-.loginbtn {
-    margin-right: 20px;
-}
-
 .navlink {
     font-size: 0.4em;
 }
@@ -106,6 +101,31 @@ li {
     font-size: 0.4em;
     color: white;
 
+}
+
+.midarea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#SymbolIndex {
+    width: 200px;
+    height: 50px;
+    border: 3px ridge #432B0F;
+    border-radius: 10px;
+    margin-top: 50px;
+    color: #DC9756;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 15px;
+    text-align-last: center;
+    outline: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: url("http://ourjs.github.io/static/2015/arrow.png") no-repeat scroll right center transparent;
 }
 
 

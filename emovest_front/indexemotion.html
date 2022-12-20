@@ -18,7 +18,7 @@
   <nav class="navbar">
     <ul class="container0">
       <li class="navitem">
-        <a class="logo animate__animated animate__bounce">EmoVest</a>  
+        <a class="logo animate__animated animate__bounce">EmoVest</a>
       </li>
       <div class="usercontainer">
         <a href="indexsignin.html"><i class="fa-solid fa-user"></i></a>
@@ -62,22 +62,22 @@
   <!-- Chart code -->
   <script>
 
-    let emoScore=0//全域變數
-    function SymbolFetch(){
+    let emoScore = 0//全域變數
+    function SymbolFetch() {
       var objS = document.getElementById("SymbolIndex");
       var symbol = "BTC";
       symbol = objS.options[objS.selectedIndex].value;
 
-      fetch('http://34.81.139.175:45001/emoscore'+symbol)
-              .then((response) => {
-                return response.json();
-              })
-              .then( (response) => {
-                emoScore=2*(response.score*100)-100;
-              })
-              .catch((error) => {
-                console.log(`Error: ${error}`);
-              })
+      fetch('http://34.81.139.175:45001/emoscore' + symbol)
+        .then((response) => {
+          return response.json();
+        })
+        .then((response) => {
+          emoScore = 2 * (response.score * 100) - 100;
+        })
+        .catch((error) => {
+          console.log(`Error: ${error}`);
+        })
     }
 
     am5.ready(function () {
@@ -268,9 +268,9 @@
   </script>
 
   <!-- HTML -->
-  <div>
-    <select id="SymbolIndex" onchange="SymbolFetch()" >
-      <option value="BTC" selected >BTC</option>
+  <div class="midarea">
+    <select id="SymbolIndex" onchange="SymbolFetch()">
+      <option value="BTC" selected>BTC</option>
       <option value="ETH">ETH</option>
       <option value="BNB">BNB</option>
       <option value="XRP">XRP</option>
@@ -282,9 +282,7 @@
       <option value="AVAX">AVAX</option>
       <option value="LUNA">LUNA</option>
     </select>
-
-  <div id="chartdiv"></div>
-
+    <div id="chartdiv"></div>
   </div>
 </body>
 <footer>
