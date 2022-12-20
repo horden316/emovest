@@ -26,7 +26,10 @@ for (var i = 0; i < 1; i++) {
           return response.json();
         })
         .then( (response) => {
-          emoScore=response.score;
+            console.log(response)
+            response.forEach(function(item, index, array){
+                indexinvestTabDemo(item);
+            });
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -44,7 +47,10 @@ for (var i = 0; i < 1; i++) {
           return response.json();
         })
         .then( (response) => {
-          emoScore=response.score;
+            console.log(response)
+            response.forEach(function(item, index, array){
+                indexinvestTabDemo(item);
+            });
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -63,7 +69,9 @@ for (var i = 0; i < 1; i++) {
         })
         .then( (response) => {
             console.log(response)
-            indexinvestfirstlayerr(response);
+            response.forEach(function(item, index, array){
+                indexinvestTabDemo(item);
+            });
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -82,12 +90,10 @@ for (var i = 0; i < 1; i++) {
         })
         .then( (response) => {
           //emoScore=response.score;
-            console.log(response)
-            for (var k = 0; k < response.length; k++){
-
-                indexinvestTabDemo(response,k);
-
-            }
+            console.log(response);
+            response.forEach(function(item, index, array){
+                indexinvestTabDemo(item);
+            });
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -96,17 +102,19 @@ for (var i = 0; i < 1; i++) {
     var ele = document.getElementsByClassName('year');
     ele[i].onclick = yearAlert;
     
-    }
+}
+
+//indexinvestfirstlayerr(response);
     
-    //IndexSignIn.html，取得User input的email和password
-    function AddUserIdentify(value) {
-      alert("已接收");
-      var apikeyInput = document.getElementsByClassName("apikey");
-      var apisecretInput = document.getElementsByClassName("apisecret");
-      var apikey = apikeyInput[0].value;
-      var apisecret = apisecretInput[0].value;
-      alert("apikey:" + apikey + "\n apisecret:" + apisecret);
-    }
+//IndexSignIn.html，取得User input的email和password
+function AddUserIdentify(value) {
+    alert("已接收");
+    var apikeyInput = document.getElementsByClassName("apikey");
+    var apisecretInput = document.getElementsByClassName("apisecret");
+    var apikey = apikeyInput[0].value;
+    var apisecret = apisecretInput[0].value;
+    alert("apikey:" + apikey + "\n apisecret:" + apisecret);
+}
     
     // var eee = document.querySelector('.signin');
     // eee.addEventListener("click", UserIdentify);
@@ -114,68 +122,70 @@ for (var i = 0; i < 1; i++) {
 
 
 
-function indexinvestTabDemo(data,k){
+function indexinvestTabDemo(data){
 
     const TabDemo = document.querySelector('[data-target="tab-demo"]')
-
+      
     TabDemo.innerHTML +=
-
-        `<div class="blankbox col-3"></div>
-
-  <div id="one" class="tab-inner">
-
-  <h3>${data[k].Symbol} 永續</h3>
-
-  <div class="text1">
-
-      <p>每單位成本價</p>
-
-      <p>${data[k].AvgCost} USDT</p>
-
-  </div>
-
-  <div class="vline3">
-
-      <hr>
-
-  </div>
-
-  <div class="text2">
-
-      <div class="text2l">
-
-          <p>漲跌</p>
-
-          <p>損益</p>
-
-          <p>歷史盈虧</p>
-
-      </div>
-
-      <div class="text2r">
-
-          <p>${data[k].UpAndDown} %</p>
-
-          <p>${data[k].ProfitAndLoss} %</p>
-
-          <p>${data[k].ProfitAndLossAmount} USDT</p>
-
-      </div>
-
-  </div>
-
-  <div class="pic">
-
-      <img src="img/K線圖軟體2.jpeg">
-
-  </div>
-
-  </div>
-
-  </div>
-                        
-  <div class="blankbox"></div>`
-
+      
+    `<div class="tab-demo">
+      
+    <div class="blankbox"></div>
+      
+    <div id="one" class="tab-inner">
+      
+    <h3>${data.Symbol} 永續</h3>
+      
+    <div class="text1">
+      
+        <p>每單位成本價</p>
+      
+        <p>${data.AvgCost} USDT</p>
+      
+    </div>
+      
+    <div class="vline3">
+      
+        <hr>
+      
+    </div>
+      
+    <div class="text2">
+      
+        <div class="text2l">
+      
+            <p>漲跌</p>
+      
+            <p>損益</p>
+      
+            <p>歷史盈虧</p>
+      
+        </div>
+      
+        <div class="text2r">
+      
+            <p>${data.UpAndDown} %</p>
+      
+            <p>${data.ProfitAndLoss} %</p>
+      
+            <p>${data.ProfitAndLossAmount} USDT</p>
+      
+        </div>
+      
+    </div>
+      
+    <div class="pic">
+      
+        <img src="img/K線圖軟體2.jpeg">
+      
+    </div>
+      
+    </div>
+                            
+    <div class="blankbox"></div>
+      
+    </div>`
+      
 }
 
 
@@ -206,7 +216,7 @@ function indexinvestfirstlayerr(Alldata){
 
     firstlayerr.innerHTML =
 
-        `<div class="innertext2">
+    `<div class="innertext2">
                 
     <h4 class="text1">虛擬貨幣市值：${Processdata.MarketValue} USTD</h4><br>
                 

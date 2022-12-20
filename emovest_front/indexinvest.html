@@ -31,19 +31,19 @@
         </ul>        
         <ul class="container">            
             <li class="navitem">                
-                <a class="navlink" href="indexhomepage.php">主頁</a>                
+                <a class="navlink" href="indexhomepage.html">主頁</a>                
             </li>            
             <li class="navitem">                
-                <a class="navlink" href="indexemotion.php">情緒儀表板</a>                
+                <a class="navlink" href="indexemotion.html">情緒儀表板</a>                
             </li>            
             <li class="navitem">                
-                <a class="navlink2" href="indexinvest.php">投資績效計算</a>                
+                <a class="navlink2" href="indexinvest.html">投資績效計算</a>                
             </li>            
             <li class="navitem">                
-                <a class="navlink" href="indexmarket.php">市場行情</a>                
+                <a class="navlink" href="indexmarket.html">市場行情</a>                
             </li>            
             <li class="navitem">                
-                <a class="navlink" href="indexaccount.php">帳戶</a>                
+                <a class="navlink" href="indexaccount.html">帳戶</a>                
             </li>            
         </ul>        
     </nav>    
@@ -130,158 +130,47 @@
             </div>            
         </div>        
         <div class="firstlayerr" data-target="firstlayerr">            
-<!--
-            <div class="innertext2">                
+
+            <!-- <div class="innertext2">                
                 <h4 class="text1">虛擬貨幣市值：731 USTD</h4><br>                
                 <h4 class="text2">總成本：759 USTD</h4><br>                
                 <h4 class="text3">總損益：-27 USTD</h4>                
-            </div>
--->            
+            </div> -->
+           
         </div>        
     </div>    
     <div class="vline2">        
         <hr>        
-    </div>    
-    <div class="secondlayer">        
+    </div>
+
+    <div class="TheButtons">
         <ul class="nav flex-column" align-center>            
             <li class="nav-item">                
-              <button class="week">A week</a></button>                
+            <button class="week">A week</a></button>                
             </li>            
             <li class="nav-item">                
-              <button class="month">A month</a></button>                
+            <button class="month">A month</a></button>                
             </li>            
             <li class="nav-item">                
-              <button class="halfyear">Half a year</a></button>                
+            <button class="halfyear">Half a year</a></button>                
             </li>            
             <li class="nav-item">                
-              <button class="year" >A year</a></button>
+            <button class="year" >A year</a></button>
             </li>            
             <li class="nav-item">                
-              <button class="pagerefresh">Page refresh</a></button>                
+            <button class="pagerefresh">Page refresh</a></button>                
             </li>            
         </ul>
+    </div>
 
-        <!-- start -->
-       
-            <!-- <?php
+    <div style="overflow:auto; width: auto;">
+    <pre style="white-space:nowrap;">
+        <div class="secondlayer" data-target="tab-demo">
+            <!-- Here -->
+        </div>
+    </pre> 
+    </div> 
 
-                require_once('conn.php');
-
-                $dates = array();
-
-                $sql = "select `Symbol`, `AvgCost` from `abc` AS userData limit 3";
-
-                $result = mysqli_query($link, $sql);
-
-                if ($result) {
-
-                    if (mysqli_num_rows($result)>0) {
-
-                        while ($row = mysqli_fetch_assoc($result)) {
-
-                            $datas[] = $row;
-                        }
-                    }
-
-                    mysqli_free_result($result);
-                }
-
-                else {
-
-                    echo "{$sql} 語法執行失敗，錯誤訊息: " . mysqli_error($link);
-
-                }
-
-            ?>
-
-            <?php if(!empty($datas)): ?>
-
-            <?php foreach ($datas as $key => $row) :?> -->
-            
-            <div class="tab-demo" data-target="tab-demo">                
-                <div class="blankbox"></div>
-                
-                <!-- tab標籤列 -->
-                
-                <!--<ul class="tab-title">
-                    
-                    <li class="active"><div class="box"><a href="javascript:;" data-tablink="one">週</a></div></li>
-                    
-                    <li class="active"><div class="box"><a href="javascript:;" data-tablink="two">月</a></div></li>
-                    
-                    <li class="active"><div class="box"><a href="javascript:;" data-tablink="three">半年</a></div></li>
-                    
-                    <li class="active"><div class="box"><a href="javascript:;" data-tablink="forth">一年</a></div></li>
-                    
-                </ul>-->
-            
-                <div class="tab-inner-wrap">
-                    
-                    <!-- <div id="one" class="tab-inner">
-
-                        <h3> BTCUSDT 永續</h3>
-
-                        <div class="text1">
-
-                            <p>每單位成本價</p>
-
-                            <p> 110 USDT</p>
-
-                        </div>
-
-                        <div class="vline3">
-
-                            <hr>
-
-                        </div>
-
-                        <div class="text2">
-
-                            <div class="text2l">
-
-                                <p>漲跌</p>
-
-                                <p>損益</p>
-
-                                <p>歷史盈虧</p>
-
-                            </div>
-
-                            <div class="text2r">
-
-                                <p>0.83%</p>
-
-                                <p>1.72%</p>
-
-                                <p>543.29 USDT</p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="pic">
-
-                            <img src="img/K線圖軟體2.jpeg">
-
-                        </div>
-
-                    </div>     -->
-                    
-                </div>                        
-                <div class="blankbox"></div>                
-            </div>
-        
-        <!-- <?php endforeach; ?>
-            
-        <?php else:  ?>
-            
-        <?php endif; ?>
-            
-        <?php mysqli_close($link); ?> -->
-                
-        <!--end-->
-        
-    </div>    
     <div class="vline2">        
         <hr>        
     </div>
