@@ -281,6 +281,11 @@ li {
     overflow-x: scroll;
 }
 
+/*當secondlayer沒有交易資料可以顯示*/
+.NoTrans p {
+    margin: 40px 40px 80px 50px;
+}
+
 .tab-demo {
     margin-right: 20px;
     margin-left: 20px;

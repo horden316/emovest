@@ -56,39 +56,11 @@
                         <canvas id="myChart"></canvas>
                         <canvas id="myChart"></canvas>
                     </div>
-                    <div class="innertext">
-                        <h4>-3.72%</h4>
+                    <div class="innertext" data-target="innertext">
+                        <!-- Here -->
                     </div>
                 </div>
-                <script>
-                    const ctx = document.getElementById('myChart').getContext('2d');
-                    const myChart = new Chart(ctx, {
-                        type: 'doughnut',
-                        data: {
-                            labels: ['成本', '損益'],
-                            datasets: [{
-                                label: '# of Votes',
-                                data: [66, 34],
-                                backgroundColor: [
-                                    'rgba(240, 150, 130, 0.8)',
-                                    'rgba(170, 200, 139, 0.8)'
-                                ],
-                                borderColor: [
-                                    'rgba(240, 150, 130, 0.7)',
-                                    'rgba(170, 200, 139, 0.7)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
-                </script>
+                <!-- Script in main.js -->
             </div>
             <div class="circle2">
                 <div class="chartcontainer2">
@@ -97,37 +69,7 @@
                         <canvas id="myChart2"></canvas>
                     </div>
                 </div>
-                <script>
-                    const ctx2 = document.getElementById('myChart2').getContext('2d');
-                    const myChart2 = new Chart(ctx2, {
-                        type: 'pie',
-                        data: {
-                            labels: ['BTN', 'SOL', 'ETH'],
-                            datasets: [{
-                                label: '# of Votes',
-                                data: [70, 20, 10],
-                                backgroundColor: [
-                                    'rgba(211, 160, 115, 1)',
-                                    'rgba(232, 194, 155, 1)',
-                                    'rgba(247, 226, 201, 1)'
-                                ],
-                                borderColor: [
-                                    'rgba(211, 160, 115, 0.8)',
-                                    'rgba(232, 194, 155, 0.8)',
-                                    'rgba(247, 226, 201, 0.8)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                y: {
-                                    beginAtZero: true
-                                }
-                            }
-                        }
-                    });
-                </script>
+                <!-- Script in main.js -->
             </div>          
             <div class="linecontainer">                
                 <div class="vline">                    
@@ -136,13 +78,7 @@
             </div>            
         </div>        
         <div class="firstlayerr" data-target="firstlayerr">            
-
-            <!-- <div class="innertext2">                
-                <h4 class="text1">虛擬貨幣市值：731 USTD</h4><br>                
-                <h4 class="text2">總成本：759 USTD</h4><br>                
-                <h4 class="text3">總損益：-27 USTD</h4>                
-            </div> -->
-           
+            <!-- Here -->
         </div>        
     </div>    
     <div class="vline2">        
@@ -168,7 +104,6 @@
             </li>
         </ul>
     </div>
-
     <div class="secondlayer" data-target="tab-demo" str>
         <!-- Here -->
     </div>

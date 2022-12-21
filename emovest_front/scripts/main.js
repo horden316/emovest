@@ -27,9 +27,13 @@ for (var i = 0; i < 1; i++) {
         })
         .then( (response) => {
             console.log(response)
-            response.forEach(function(item, index, array){
-                indexinvestTabDemo(item);
-            });
+            if (response.length > 0) {
+                response.forEach(function(item, index, array){
+                  indexinvestTabDemo(item);
+                });
+            } else {
+                  indexinvestTabDemoNodata();
+            }
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -48,9 +52,13 @@ for (var i = 0; i < 1; i++) {
         })
         .then( (response) => {
             console.log(response)
-            response.forEach(function(item, index, array){
-                indexinvestTabDemo(item);
-            });
+            if (response.length > 0) {
+                response.forEach(function(item, index, array){
+                  indexinvestTabDemo(item);
+                });
+            } else {
+                  indexinvestTabDemoNodata();
+            }
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -69,9 +77,13 @@ for (var i = 0; i < 1; i++) {
         })
         .then( (response) => {
             console.log(response)
-            response.forEach(function(item, index, array){
-                indexinvestTabDemo(item);
-            });
+            if (response.length > 0) {
+                response.forEach(function(item, index, array){
+                  indexinvestTabDemo(item);
+                });
+            } else {
+                  indexinvestTabDemoNodata();
+            }
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -89,11 +101,14 @@ for (var i = 0; i < 1; i++) {
           return response.json();
         })
         .then( (response) => {
-          //emoScore=response.score;
             console.log(response);
-            response.forEach(function(item, index, array){
-                indexinvestTabDemo(item);
-            });
+            if (response.length > 0) {
+                response.forEach(function(item, index, array){
+                  indexinvestTabDemo(item);
+                });
+            } else {
+                  indexinvestTabDemoNodata();
+            }
         })
         .catch((error) => {
           console.log(`Error: ${error}`);
@@ -103,8 +118,6 @@ for (var i = 0; i < 1; i++) {
     ele[i].onclick = yearAlert;
     
 }
-
-//indexinvestfirstlayerr(response);
     
 //IndexSignIn.html，取得User input的email和password
 function AddUserIdentify(value) {
@@ -115,18 +128,26 @@ function AddUserIdentify(value) {
     var apisecret = apisecretInput[0].value;
     alert("apikey:" + apikey + "\n apisecret:" + apisecret);
 }
+
+
+
+function indexinvestTabDemoNodata(){
+
+    const TabDemo = document.querySelector('[data-target="tab-demo"]')
+  
+    TabDemo.innerHTML +=
+
+    `<div class="NoTrans">
+
+    <p>您在這段期間內並無任何交易資料，請選擇更長的期間。</p>
     
-    // var eee = document.querySelector('.signin');
-    // eee.addEventListener("click", UserIdentify);
-    // eee[0].onclick = UserIdentify;
+    </div>`
 
-
+}
 
 function indexinvestTabDemo(data){
 
   const TabDemo = document.querySelector('[data-target="tab-demo"]')
-
-  console.log(TabDemo);
 
   TabDemo.innerHTML +=
 
@@ -195,41 +216,162 @@ function indexinvestTabDemo(data){
 }
 
 
+indexinvestfirstlayerr(responsejson);
+
 function indexinvestfirstlayerr(Alldata){
-    var MarketValue = 0;
-    var AllSymbolCost = 0;
-    var AllSymbolUpAndDown = 0;
 
-    for (var k = 0; k < Alldata.length; k++){
+  var MarketValue = 0;
+  var AllSymbolCost = 0;
+  var AllSymbolUpAndDown = 0;
 
-        MarketValue += Alldata[k].LatestPrice * Alldata[k].TotalQuan;
+  for (var k = 0; k < Alldata.length; k++){
 
-        AllSymbolCost += Alldata[k].TotalSpend;
+      MarketValue += Alldata[k].LatestPrice * Alldata[k].TotalQuan;
 
-        AllSymbolUpAndDown = MarketValue - AllSymbolCost;
+      AllSymbolCost += Alldata[k].TotalSpend;
+
+      AllSymbolUpAndDown = MarketValue - AllSymbolCost;
+
+      AllSymbolUpAndDownPersent = Math.round(AllSymbolUpAndDown / AllSymbolCost * 100000) / 1000;
 
 
-        if (k = Alldata.length - 1) {
+      if (k == Alldata.length - 1) {
 
-            var Processdata=(JSON.parse(JSON.stringify({MarketValue:MarketValue, AllSymbolCost:AllSymbolCost, AllSymbolUpAndDown:AllSymbolUpAndDown})));
+          var Processdata=(JSON.parse(JSON.stringify({
+            
+            MarketValue:Math.round(MarketValue * 1000000) / 1000000, 
+            
+            AllSymbolCost:Math.round(AllSymbolCost * 1000000) / 1000000, 
+            
+            AllSymbolUpAndDown:Math.round((AllSymbolUpAndDown) * 10000000) / 10000000, 
+            
+            AllSymbolUpAndDownPersent:AllSymbolUpAndDownPersent
+        
+          })));
 
-            console.log(Processdata);
+          console.log(Processdata);
 
+      }
+  }
+
+  const firstlayerr = document.querySelector('[data-target="firstlayerr"]')
+
+  firstlayerr.innerHTML =
+
+      `<div class="innertext2">
+              
+  <h4 class="text1">虛擬貨幣市值：${Processdata.MarketValue} USTD</h4><br>
+              
+  <h4 class="text2">總成本：${Processdata.AllSymbolCost} USTD</h4><br>
+              
+  <h4 class="text3">總損益：${Processdata.AllSymbolUpAndDown} USTD</h4>
+              
+</div>`
+
+
+
+
+const innertext = document.querySelector('[data-target="innertext"]')
+
+innertext.innerHTML =
+
+      `<h4> ${Processdata.AllSymbolUpAndDownPersent} %</h4>`
+
+
+if (AllSymbolUpAndDownPersent > 0) {
+
+//圓餅圖1-1的Script (正報酬)
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['總成本', '總損益 (+)'],
+        datasets: [{
+            label: '# of Votes',
+            data: [Processdata.AllSymbolCost, Processdata.AllSymbolUpAndDown],
+            backgroundColor: [
+                'rgba(232, 194, 155, 0.8)',
+                'rgba(173, 231, 148, 1)'
+            ],
+            borderColor: [
+                'rgba(247, 226, 201, 1)',
+                'rgba(103, 230, 49, 0.9)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
         }
     }
+});
 
-    const firstlayerr = document.querySelector('[data-target="firstlayerr"]')
+} else {
 
-    firstlayerr.innerHTML =
+//圓餅圖1-2的Script (負報酬)
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['總市值', '總損益 (-)'],
+        datasets: [{
+            label: '# of Votes',
+            data: [Processdata.MarketValue, Processdata.AllSymbolUpAndDown],
+            backgroundColor: [
+                'rgba(232, 194, 155, 0.8)',
+                'rgba(241, 112, 83, 0.8)'
+            ],
+            borderColor: [
+                'rgba(247, 226, 201, 1)',
+                'rgba(255, 94, 79, 0.8)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 
-    `<div class="innertext2">
-                
-    <h4 class="text1">虛擬貨幣市值：${Processdata.MarketValue} USTD</h4><br>
-                
-    <h4 class="text2">總成本：${Processdata.AllSymbolCost} USTD</h4><br>
-                
-    <h4 class="text3">總損益：${Processdata.AllSymbolUpAndDown} USTD</h4>
-                
-  </div>`
+}
+
+
+//圓餅圖2的Script
+const ctx2 = document.getElementById('myChart2').getContext('2d');
+const myChart2 = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+        labels: [Alldata[0].Symbol, Alldata[1].Symbol, Alldata[2].Symbol],
+        datasets: [{
+            label: '# of Votes',
+            data: [Alldata[0].TotalSpend, Alldata[1].TotalSpend, Alldata[2].TotalSpend],
+            backgroundColor: [
+                'rgba(211, 160, 115, 1)',
+                'rgba(232, 194, 155, 1)',
+                'rgba(247, 226, 201, 1)'
+            ],
+            borderColor: [
+                'rgba(211, 160, 115, 0.8)',
+                'rgba(232, 194, 155, 0.8)',
+                'rgba(247, 226, 201, 0.8)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 
 }
