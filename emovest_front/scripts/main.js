@@ -203,12 +203,6 @@ function indexinvestTabDemo(data){
 
 </div>
 
-<div class="pic">
-
-    <img src="img/K線圖軟體2.jpeg">
-
-</div>
-
 </div>
 
 </div>
