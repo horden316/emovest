@@ -159,6 +159,7 @@ li {
     flex-direction: row;
     width: 1280px;
     font-size: 20px;
+    margin-top: 30px;
 }
 
 .firstlayerl {
@@ -195,25 +196,26 @@ li {
 .vline2 {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .vline2 hr {
     width: 1200px;
     opacity: 0.5;
+
 }
 
 /*第二層*/
 .TheButtons {
     margin-left: 70px;
     margin-right: 50px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .flex-column {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-around; */
-    width: 500px;
+    justify-content: center;
 }
 
 
@@ -223,12 +225,14 @@ li {
     width: 100px;
     height: 40px;
     border: 1px solid #F0C994;
+    border-left: none;
     background-color: white;
     font-size: 12px;
     color: #432B0F;
     /* margin-right: 10px;
     margin-left: 10px; */
 }
+
 .week {
     width: 100px;
     height: 40px;
@@ -246,37 +250,23 @@ li {
     width: 100px;
     height: 40px;
     border: 1px solid #F0C994;
+    border-left: none;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     background-color: white;
     font-size: 12px;
     color: #432B0F;
-    /* margin-right: 10px;
-    margin-left: 10px; */
 }
 
-/* .year{
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin-left: 20px;
-}
-.pagerefresh{
-    justify-self: end;
-    width: 100px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-} */
 .secondlayer {
     display: flex;
     flex-direction: row;
     font-size: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 30px;
-    margin-bottom: 60px;
+    width: 1350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 80px;
     font-family: 'Inter', sans-serif;
     overflow-x: scroll;
 }
@@ -344,7 +334,7 @@ li {
     border-top: none;
     border-bottom: none;
     width: 300px;
-    height: 400px;
+    height: 250px;
     position: relative;
 }
 
@@ -394,7 +384,7 @@ img {
 
 .blankbox1 {
     width: 300px;
-    height: 30px;
+    height: 25px;
     background-color: #F0C994;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -404,7 +394,7 @@ img {
 
 .blankbox {
     width: 300px;
-    height: 30px;
+    height: 25px;
     background-color: #F0C994;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -435,7 +425,7 @@ img {
 }
 
 .content h3 {
-    font-size: 0.8em;
+    font-size: 0.7em;
     margin-top: 30px;
     font-weight: 400;
 }
