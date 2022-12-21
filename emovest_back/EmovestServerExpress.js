@@ -164,10 +164,24 @@ function main() {
   //invest
   /////////////
 
-  app.get("/emoInvestYear", function (req, res) {
+  app.get("/emoInvestWeek", function (req, res) {
     connectionInvest.query(
       //還沒把Address拿出來
-      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 31536000000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
+      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 604800000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("The period is Year");
+        res.writeHead(222, { "Content-type": "application/json" });
+        res.end(JSON.stringify(rows));
+        console.log(JSON.stringify(rows));
+      }
+    );
+  });
+
+  app.get("/emoInvestMonth", function (req, res) {
+    connectionInvest.query(
+      //還沒把Address拿出來
+      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 2678400000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
       function (err, rows, fields) {
         if (err) throw err;
         console.log("The period is Year");
@@ -180,7 +194,22 @@ function main() {
 
   app.get("/emoInvestHalfYear", function (req, res) {
     connectionInvest.query(
-      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 99999999999',
+      //還沒把Address拿出來
+      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 15768000000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("The period is Year");
+        res.writeHead(222, { "Content-type": "application/json" });
+        res.end(JSON.stringify(rows));
+        console.log(JSON.stringify(rows));
+      }
+    );
+  });
+
+  app.get("/emoInvestYear", function (req, res) {
+    connectionInvest.query(
+      //還沒把Address拿出來
+      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 31536000000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
       function (err, rows, fields) {
         if (err) throw err;
         console.log("The period is Year");
