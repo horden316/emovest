@@ -20,7 +20,6 @@ for (var i = 0; i < 1; i++) {
     //Unix time of a week = 604800
     function weekAlert(){
         deletetext();
-        //alert("The period is week");
         
         fetch('http://34.81.139.175:45001/emoInvestWeek')
         .then((response) => {
@@ -46,7 +45,6 @@ for (var i = 0; i < 1; i++) {
     //Unix time of a month = 2678400
     function monthAlert(){
         deletetext();
-        //alert("The period is month");
         
         fetch('http://34.81.139.175:45001/emoInvestMonth')
         .then((response) => {
@@ -72,7 +70,6 @@ for (var i = 0; i < 1; i++) {
     //Unix time of half year = 15768000
     function halfyearAlert(){
         deletetext();
-        //alert("The period is halfyear");
         
         fetch('http://34.81.139.175:45001/emoInvestHalfYear')
         .then((response) => {
@@ -98,7 +95,6 @@ for (var i = 0; i < 1; i++) {
     //Unix time of a year = 31536000
     function yearAlert(){
         deletetext();
-        //alert("The period is year");
         
         fetch('http://34.81.139.175:45001/emoInvestYear')
         .then((response) => {
@@ -120,6 +116,31 @@ for (var i = 0; i < 1; i++) {
     }
     var ele = document.getElementsByClassName('year');
     ele[i].onclick = yearAlert;
+
+    //Unix time of all = 999999999
+    function pagerefreshAlert(){
+        deletetext();
+        
+        fetch('http://34.81.139.175:45001/emoInvestTotal')
+        .then((response) => {
+          return response.json();
+        })
+        .then( (response) => {
+            console.log(response)
+            if (response.length > 0) {
+                response.forEach(function(item, index, array){
+                    indexinvestfirstlayerr(response);
+                });
+            } else {
+                indexinvestfirstlayerrNodata();
+            }
+        })
+        .catch((error) => {
+          console.log(`Error: ${error}`);
+        })
+    }
+    var ele = document.getElementsByClassName('pagerefresh');
+    ele[i].onclick = pagerefreshAlert;
     
 }
     
@@ -133,13 +154,19 @@ function AddUserIdentify(value) {
     alert("apikey:" + apikey + "\n apisecret:" + apisecret);
 }
 
+function deletetext(){
 
+    const TabDemo = document.querySelector('[data-target="tab-demo"]')
+  
+    TabDemo.innerHTML =``
+
+}
 
 function indexinvestTabDemoNodata(){
 
     const TabDemo = document.querySelector('[data-target="tab-demo"]')
   
-    TabDemo.innerHTML +=
+    TabDemo.innerHTML =
 
     `<div class="NoTrans">
 
@@ -169,7 +196,7 @@ function indexinvestTabDemo(data){
 
     <p>每單位成本價</p>
 
-    <p>${data.AvgCost} USDT</p>
+    <p>${Math.round(data.AvgCost * 1000) / 1000} USDT</p>
 
 </div>
 
@@ -193,11 +220,11 @@ function indexinvestTabDemo(data){
 
     <div class="text2r">
 
-        <p>${data.UpAndDown} %</p>
+        <p>${Math.round(data.UpAndDown * 1000 ) / 1000} %</p>
 
-        <p>${data.ProfitAndLoss} %</p>
+        <p>${Math.round(data.ProfitAndLoss * 1000) / 1000} %</p>
 
-        <p>${data.ProfitAndLossAmount} USDT</p>
+        <p>${Math.round(data.ProfitAndLossAmount * 1000) / 1000} USDT</p>
 
     </div>
 
@@ -214,15 +241,19 @@ function indexinvestTabDemo(data){
 }
 
 
-function deletetext(){
+function indexinvestfirstlayerrNodata(){
 
     const TabDemo = document.querySelector('[data-target="tab-demo"]')
+  
+    TabDemo.innerHTML =
 
-    TabDemo.innerHTML =``
+    `<div class="NoTrans">
+
+    <p>您目前沒有任何交易資料。</p>
+    
+    </div>`
 
 }
-
-indexinvestfirstlayerr(responsejson);
 
 function indexinvestfirstlayerr(Alldata){
 
@@ -245,11 +276,11 @@ function indexinvestfirstlayerr(Alldata){
 
           var Processdata=(JSON.parse(JSON.stringify({
             
-            MarketValue:Math.round(MarketValue * 1000000) / 1000000, 
+            MarketValue:Math.round(MarketValue * 1000) / 1000, 
             
-            AllSymbolCost:Math.round(AllSymbolCost * 1000000) / 1000000, 
+            AllSymbolCost:Math.round(AllSymbolCost * 1000) / 1000, 
             
-            AllSymbolUpAndDown:Math.round((AllSymbolUpAndDown) * 10000000) / 10000000, 
+            AllSymbolUpAndDown:Math.round((AllSymbolUpAndDown) * 1000) / 1000, 
             
             AllSymbolUpAndDownPersent:AllSymbolUpAndDownPersent
         
