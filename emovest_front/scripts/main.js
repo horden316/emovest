@@ -124,68 +124,74 @@ function AddUserIdentify(value) {
 
 function indexinvestTabDemo(data){
 
-    const TabDemo = document.querySelector('[data-target="tab-demo"]')
-      
-    TabDemo.innerHTML +=
-      
-    `<div class="tab-demo">
-      
-    <div class="blankbox"></div>
-      
-    <div id="one" class="tab-inner">
-      
-    <h3>${data.Symbol} 永續</h3>
-      
-    <div class="text1">
-      
-        <p>每單位成本價</p>
-      
-        <p>${data.AvgCost} USDT</p>
-      
+  const TabDemo = document.querySelector('[data-target="tab-demo"]')
+
+  console.log(TabDemo);
+
+  TabDemo.innerHTML +=
+
+      `<div class="tab-demo">
+
+<div class="blankbox1"></div>
+
+<div class="tab-inner-wrap">
+
+<div id="one" class="tab-inner">
+
+<h3>${data.Symbol} 永續</h3>
+
+<div class="text1">
+
+    <p>每單位成本價</p>
+
+    <p>${data.AvgCost} USDT</p>
+
+</div>
+
+<div class="vline3">
+
+    <hr>
+
+</div>
+
+<div class="text2">
+
+    <div class="text2l">
+
+        <p>漲跌</p>
+
+        <p>損益</p>
+
+        <p>歷史盈虧</p>
+
     </div>
-      
-    <div class="vline3">
-      
-        <hr>
-      
+
+    <div class="text2r">
+
+        <p>${data.UpAndDown} %</p>
+
+        <p>${data.ProfitAndLoss} %</p>
+
+        <p>${data.ProfitAndLossAmount} USDT</p>
+
     </div>
-      
-    <div class="text2">
-      
-        <div class="text2l">
-      
-            <p>漲跌</p>
-      
-            <p>損益</p>
-      
-            <p>歷史盈虧</p>
-      
-        </div>
-      
-        <div class="text2r">
-      
-            <p>${data.UpAndDown} %</p>
-      
-            <p>${data.ProfitAndLoss} %</p>
-      
-            <p>${data.ProfitAndLossAmount} USDT</p>
-      
-        </div>
-      
-    </div>
-      
-    <div class="pic">
-      
-        <img src="img/K線圖軟體2.jpeg">
-      
-    </div>
-      
-    </div>
-                            
-    <div class="blankbox"></div>
-      
-    </div>`
-      
+
+</div>
+
+<div class="pic">
+
+    <img src="img/K線圖軟體2.jpeg">
+
+</div>
+
+</div>
+
+</div>
+                      
+<div class="blankbox"></div>
+
+</div>`
+
 }
 
 

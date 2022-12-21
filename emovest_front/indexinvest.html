@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
-    
-    
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +13,8 @@
     <script src="https://kit.fontawesome.com/27fa02f410.js" crossorigin="anonymous"></script>
     <!--chart.js 套件 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-        integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+        integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" 
+        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <header>
@@ -52,77 +50,85 @@
 <body>    
     <div class="firstlayer">        
         <div class="firstlayerl">            
-            <div class="circle1">                
-                <div class="chartcontainer">                    
-                    <div class="chart">                        
-                        <canvas id="myChart"></canvas>                        
-                        <canvas id="myChart"></canvas>                        
-                    </div>                    
-                    <div class="innertext">                        
-                        <h4>-3.72%</h4>                        
-                    </div>                    
-                </div>                
-                <script>                    
-                    const ctx = document.getElementById('myChart').getContext('2d');                    
-                    const myChart = new Chart(ctx, {                        
-                        type: 'doughnut',                        
-                        data: {                            
-                            labels: ['成本', '損益'],                            
-                            datasets: [{                                
-                                label: '# of Votes',                                
-                                data: [66, 34],                                
-                                backgroundColor: [                                    
-                                    'rgba(54, 162, 235, 0.8)',                                    
-                                    'rgba(255, 99, 132, 0.8)'],                                
-                                borderColor: [                                    
-                                    'rgba(54, 162, 235, 0.8)',                                    
-                                    'rgba(255, 99, 132, 0.8)'],                                
+            <div class="circle1">
+                <div class="chartcontainer">
+                    <div class="chart">
+                        <canvas id="myChart"></canvas>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="innertext">
+                        <h4>-3.72%</h4>
+                    </div>
+                </div>
+                <script>
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    const myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: ['成本', '損益'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [66, 34],
+                                backgroundColor: [
+                                    'rgba(240, 150, 130, 0.8)',
+                                    'rgba(170, 200, 139, 0.8)'
+                                ],
+                                borderColor: [
+                                    'rgba(240, 150, 130, 0.7)',
+                                    'rgba(170, 200, 139, 0.7)'
+                                ],
                                 borderWidth: 1
-                            }]                            
-                        },                        
-                        options: {                            
-                            scales: {                                
-                                y: { beginAtZero: true }                                
-                            }                        
-                        }                        
-                    });                    
-                </script>                
-            </div>            
-            <div class="circle2">                
-                <div class="chartcontainer2">                    
-                    <div class="chart2">                        
-                        <canvas id="myChart2"></canvas>                        
-                        <canvas id="myChart2"></canvas>                        
-                    </div>                    
-                </div>                
-                <script>                    
-                    const ctx2 = document.getElementById('myChart2').getContext('2d');                    
-                    const myChart2 = new Chart(ctx2, {                        
-                        type: 'pie',                        
-                        data: {                            
-                            labels: ['BTN', 'SOL', 'ETH'],                            
-                            datasets: [{                                
-                                label: '# of Votes',                                
-                                data: [70, 20, 10],                                
-                                backgroundColor: [                                    
-                                    'rgba(255, 99, 132, 0.8)',                                    
-                                    'rgba(54, 162, 235, 0.8)',                                    
-                                    'rgba(255, 206, 86, 0.8)'],                                
-                                borderColor: [                                    
-                                    'rgba(255, 99, 132, 1)',                                    
-                                    'rgba(54, 162, 235, 1)',                                    
-                                    'rgba(255, 206, 86, 1)'],                                
-                                borderWidth: 1                                
-                            }]                            
-                        },                        
-                        options: {                            
-                            scales: {                                
-                                y: { beginAtZero: true }                                
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
                             }
-                        }                        
-                    });                    
-                </script>                
-            </div>            
+                        }
+                    });
+                </script>
+            </div>
+            <div class="circle2">
+                <div class="chartcontainer2">
+                    <div class="chart2">
+                        <canvas id="myChart2"></canvas>
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                </div>
+                <script>
+                    const ctx2 = document.getElementById('myChart2').getContext('2d');
+                    const myChart2 = new Chart(ctx2, {
+                        type: 'pie',
+                        data: {
+                            labels: ['BTN', 'SOL', 'ETH'],
+                            datasets: [{
+                                label: '# of Votes',
+                                data: [70, 20, 10],
+                                backgroundColor: [
+                                    'rgba(211, 160, 115, 1)',
+                                    'rgba(232, 194, 155, 1)',
+                                    'rgba(247, 226, 201, 1)'
+                                ],
+                                borderColor: [
+                                    'rgba(211, 160, 115, 0.8)',
+                                    'rgba(232, 194, 155, 0.8)',
+                                    'rgba(247, 226, 201, 0.8)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>          
             <div class="linecontainer">                
                 <div class="vline">                    
                     <hr>                    
@@ -144,39 +150,27 @@
     </div>
 
     <div class="TheButtons">
-        <ul class="nav flex-column" align-center>            
-            <li class="nav-item">                
-            <button class="week">A week</a></button>                
-            </li>            
-            <li class="nav-item">                
-            <button class="month">A month</a></button>                
-            </li>            
-            <li class="nav-item">                
-            <button class="halfyear">Half a year</a></button>                
-            </li>            
-            <li class="nav-item">                
-            <button class="year" >A year</a></button>
-            </li>            
-            <li class="nav-item">                
-            <button class="pagerefresh">Page refresh</a></button>                
-            </li>            
+        <ul class="nav flex-column" align-center>
+            <li class="nav-item">
+                <button class="week">週</a></button>
+            </li>
+            <li class="nav-item">
+                <button class="month">月</a></button>
+            </li>
+            <li class="nav-item">
+                <button class="halfyear">半年</a></button>
+            </li>
+            <li class="nav-item">
+                <button class="year">年</a></button>
+            </li>
+            <li class="nav-item">
+                <button class="pagerefresh"><i class="fa-solid fa-arrows-rotate"></i> 重新整理</a></button>
+            </li>
         </ul>
     </div>
 
-    <div style="overflow:auto; width: auto;">
-    <pre style="white-space:nowrap;">
-        <div class="secondlayer" data-target="tab-demo">
-            <!-- Here -->
-        </div>
-    </pre> 
-    </div> 
-
-    <div class="vline2">        
-        <hr>        
-    </div>
-    
-    <div class="morebit">        
-        <a href="#">查詢更多幣種--></a>        
+    <div class="secondlayer" data-target="tab-demo" str>
+        <!-- Here -->
     </div>
     
 </body>
@@ -214,75 +208,78 @@
 </footer>
 
 <script src="./scripts/main.js"></script>
-<!-- <script src="./scripts/EmovestAPI.js"></script>     -->
-<!--載入jQuery-->    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    
-<!--載入jQuery UI 1.11.4-->    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>    
-<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
-    
-// <script>    
-//     $(document).ready(function () {    
-//         //導覽列變色    
-//         $(".navlink").click(function () {            
-//             $(this).css("color", "#FFFFF");            
-//         })    
-//         $(".navlink").mouseenter(function () {            
-//             $(this).css("color", "#FFFFF");            
-//             $(this).css("cursor", "pointer");            
-//         })
-//         $(".navlink").mouseleave(function () {            
-//             $(this).css("color", "#000000");            
-//         })    
-//         $("button").click(function () {            
-//             $(this).css("background-color", "#F0C994");            
-//         })    
-//         $("button").mouseenter(function () {            
-//             $(this).css("background-color", "#EED9BB");            
-//             $(this).css("cursor", "pointer");            
-//         })    
-//         $("button").mouseleave(function () {            
-//             $(this).css("background-color", "#F0C994");            
-//         })    
-//         $(".content h4").mouseenter(function () {            
-//             $(this).addClass("white")            
-//         })    
-//         $(".content h4").mouseleave(function () {            
-//             $(this).removeClass("white")            
-//         })    
-//         $(".tab-inner h3").mouseenter(function () {            
-//             $(this).addClass("orange")            
-//         })
-//         $(".tab-inner h3").mouseleave(function () {            
-//             $(this).removeClass("orange")            
-//         })    
-//     })    
-//     $(document).ready(function () {        
-//         tabCutover();        
-//     });  
-    
-//     /*錯誤版*/    
-//     function tabCutover1() {        
-//         var tablink = $(".tab-title li.active").find("a").data("tablink");
-//         $('#' + tablink).show().siblings(".tab-inner").hide();
-//         $(".tab-title li").click(function () {            
-//             $('#' + $(this).find("a").data("tablink")).show().siblings(".tab-inner").hide();            
-//             $(this).addClass("active").siblings(".active").removeClass("active");            
-//         });        
-//     }    
-    
-//     /*tab 收合*/    
-//     function tabCutover() {
-//         $(".tab-title li.active").each(function () {            
-//             var tablink = $(this).find("a").data("tablink");
-//             $('#' + tablink).show().siblings(".tab-inner").hide();            
-//         });
-//         $(".tab-title li").click(function () {            
-//             $('#' + $(this).find("a").data("tablink")).show().siblings(".tab-inner").hide();            
-//             $(this).addClass("active").siblings(".active").removeClass("active");            
-//         });        
-//     }
-    
-// </script>
+<!--載入jQuery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!--載入jQuery UI 1.11.4-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    $(document).ready(function () {
+        //導覽列變色
+        $(".navlink").click(function () {
+            $(this).css("color", "#FFFFF");
+        })
+        $(".navlink").mouseenter(function () {
+            $(this).css("color", "#FFFFF");
+            $(this).css("cursor", "pointer");
+        })
+        $(".navlink").mouseleave(function () {
+            $(this).css("color", "#000000");
+        })
+        //時間紐切換
+        $("button").click(function () {
+            $(this).css("background-color", "#fffff");
+        })
+        $("button").mouseenter(function () {
+            $(this).css("background-color", "#F0C994");
+            $(this).css("cursor", "pointer");
+        })
+        $("button").mouseleave(function () {
+            $(this).css("background-color", "#fffff");
+        })
+
+        $(".content h4").mouseenter(function () {
+            $(this).addClass("white")
+        })
+        $(".content h4").mouseleave(function () {
+            $(this).removeClass("white")
+        })
+        $(".tab-inner h3").mouseenter(function () {
+            $(this).addClass("orange")
+        })
+        $(".tab-inner h3").mouseleave(function () {
+            $(this).removeClass("orange")
+        })
+    })
+    $(document).ready(function () {
+        tabCutover();
+    });
+
+    /*錯誤版*/
+    function tabCutover1() {
+        var tablink = $(".tab-title li.active").find("a").data("tablink");
+
+        $('#' + tablink).show().siblings(".tab-inner").hide();
+
+        $(".tab-title li").click(function () {
+            $('#' + $(this).find("a").data("tablink")).show().siblings(".tab-inner").hide();
+            $(this).addClass("active").siblings(".active").removeClass("active");
+        });
+    }
+
+    /*tab 收合*/
+    function tabCutover() {
+
+        $(".tab-title li.active").each(function () {
+            var tablink = $(this).find("a").data("tablink");
+
+            $('#' + tablink).show().siblings(".tab-inner").hide();
+        });
+
+        $(".tab-title li").click(function () {
+            $('#' + $(this).find("a").data("tablink")).show().siblings(".tab-inner").hide();
+            $(this).addClass("active").siblings(".active").removeClass("active");
+        });
+    }
+</script>
 
 </html>
