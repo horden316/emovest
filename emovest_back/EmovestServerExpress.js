@@ -170,7 +170,7 @@ function main() {
       'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 604800000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
       function (err, rows, fields) {
         if (err) throw err;
-        console.log("The period is Year");
+        console.log("The period is Week");
         res.writeHead(222, { "Content-type": "application/json" });
         res.end(JSON.stringify(rows));
         console.log(JSON.stringify(rows));
@@ -184,7 +184,7 @@ function main() {
       'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 2678400000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
       function (err, rows, fields) {
         if (err) throw err;
-        console.log("The period is Year");
+        console.log("The period is Month");
         res.writeHead(222, { "Content-type": "application/json" });
         res.end(JSON.stringify(rows));
         console.log(JSON.stringify(rows));
@@ -198,7 +198,7 @@ function main() {
       'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 15768000000 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
       function (err, rows, fields) {
         if (err) throw err;
-        console.log("The period is Year");
+        console.log("The period is HalfYear");
         res.writeHead(222, { "Content-type": "application/json" });
         res.end(JSON.stringify(rows));
         console.log(JSON.stringify(rows));
@@ -226,7 +226,7 @@ function main() {
       'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 99999999999 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
       function (err, rows, fields) {
         if (err) throw err;
-        console.log("The period is Year");
+        console.log("The period is Total");
         res.writeHead(222, { "Content-type": "application/json" });
         res.end(JSON.stringify(rows));
         console.log(JSON.stringify(rows));
