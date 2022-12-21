@@ -20,7 +20,7 @@ for (var i = 0; i < 1; i++) {
     //Unix time of a week = 604800
     function weekAlert(){
         deletetext();
-        alert("The period is week");
+        //alert("The period is week");
         
         fetch('http://34.81.139.175:45001/emoInvestWeek')
         .then((response) => {
@@ -46,7 +46,7 @@ for (var i = 0; i < 1; i++) {
     //Unix time of a month = 2678400
     function monthAlert(){
         deletetext();
-        alert("The period is month");
+        //alert("The period is month");
         
         fetch('http://34.81.139.175:45001/emoInvestMonth')
         .then((response) => {
@@ -72,7 +72,7 @@ for (var i = 0; i < 1; i++) {
     //Unix time of half year = 15768000
     function halfyearAlert(){
         deletetext();
-        alert("The period is halfyear");
+        //alert("The period is halfyear");
         
         fetch('http://34.81.139.175:45001/emoInvestHalfYear')
         .then((response) => {
@@ -98,7 +98,7 @@ for (var i = 0; i < 1; i++) {
     //Unix time of a year = 31536000
     function yearAlert(){
         deletetext();
-        alert("The period is year");
+        //alert("The period is year");
         
         fetch('http://34.81.139.175:45001/emoInvestYear')
         .then((response) => {
@@ -163,7 +163,7 @@ function indexinvestTabDemo(data){
 
 <div id="one" class="tab-inner">
 
-<h3>${data.Symbol} 永續</h3>
+<h3>${data.Symbol}</h3>
 
 <div class="text1">
 
