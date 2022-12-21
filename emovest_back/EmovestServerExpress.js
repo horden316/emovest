@@ -220,6 +220,20 @@ function main() {
     );
   });
 
+  app.get("/emoInvestTotal", function (req, res) {
+    connectionInvest.query(
+      //還沒把Address拿出來
+      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 99999999999 AND TotalQuan <> 0 ORDER BY TotalQuan DESC',
+      function (err, rows, fields) {
+        if (err) throw err;
+        console.log("The period is Year");
+        res.writeHead(222, { "Content-type": "application/json" });
+        res.end(JSON.stringify(rows));
+        console.log(JSON.stringify(rows));
+      }
+    );
+  });
+
   app.post("/WalletSig", urlencodedParser, function (req, res) {
     console.log(req.body.Address);
     console.log(req.body.Signature);
