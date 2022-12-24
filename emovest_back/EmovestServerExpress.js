@@ -211,7 +211,7 @@ function main() {
     );
   });
 
-  app.get("/emoInvestYear", jsonParser, function (req, res) {
+  app.post("/emoInvestYear", jsonParser, function (req, res) {
     if (
       req.body.Address ==
       ethers.utils.verifyMessage("Welcome to Emovest", req.body.Signature)
