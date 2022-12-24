@@ -281,8 +281,13 @@
                                 $(".card_product_page").toggle();
                                 $(".card_product_page").css({ "background-color": "rgba(0, 0, 0, 0.3);" });
                                 $(".card_set").toggle();
-                                document.getElementById("apikeybinance").value=response.KEY;
-                                document.getElementById("apisecretbinance").value=response.Secret;
+                                if(response.KEY!=0) {
+                                    document.getElementById("apikeybinance").value = response.KEY;
+                                    document.getElementById("apisecretbinance").value = response.Secret;
+                                }
+                                else{
+                                    alert("登入不成功")
+                                }
 
                             })
                     })

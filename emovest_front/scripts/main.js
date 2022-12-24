@@ -11,16 +11,47 @@ constctx2 = document.getElementById('myChart2').getContext('2d');
 constctx2 = $('#myChart2');
 constctx2 = 'myChart2';
 
-// alert('connect');
-
+loginBtn = document.getElementById('userlogin');
+var SessionAddress="";
+var SessionSignature="";
+loginBtn.onclick=Login;
 var period = 0;
 
 AllData();
 
+
+function Login() {
+    if (window.web3) {
+        window.web3 = new Web3(window.web3.currentProvider);
+        ethereum.request({method: 'eth_requestAccounts'}).then((result) => {
+            address = result[0];
+            CHECKSUMADDRESS = web3.utils.toChecksumAddress(address)
+            alert('錢包連接成功，地址為' + CHECKSUMADDRESS);
+
+            var hexData = window.web3.utils.utf8ToHex("Welcome to Emovest");
+
+            window.web3.eth.personal.sign(hexData, address, function (result, signature) {
+                SessionAddress = CHECKSUMADDRESS;
+                SessionSignature = signature;
+                AllData();
+            })
+        }).catch((error) => {
+            console.log("error", error);
+        });
+    }
+}
+
 function AllData(){
     deletetext();
     
-    fetch('http://34.81.139.175:45001/emoInvestTotal')
+    fetch('http://34.81.139.175:45001/emoInvestTotal',{
+        body:JSON.stringify({"Address":SessionAddress, "Signature":SessionSignature}),
+        cache: 'no-cache',
+        credentials: 'same-origin',
+        headers: {
+            'content-type': 'application/json'
+        },
+        method: 'POST',})
     .then((response) => {
       return response.json();
     })
@@ -45,7 +76,14 @@ for (var i = 0; i < 1; i++) {
     function weekAlert(){
         deletetext();
         
-        fetch('http://34.81.139.175:45001/emoInvestWeek')
+        fetch('http://34.81.139.175:45001/emoInvestWeek',{
+            body:JSON.stringify({"Address":SessionAddress, "Signature":SessionSignature}),
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',})
         .then((response) => {
           return response.json();
         })
@@ -70,7 +108,14 @@ for (var i = 0; i < 1; i++) {
     function monthAlert(){
         deletetext();
         
-        fetch('http://34.81.139.175:45001/emoInvestMonth')
+        fetch('http://34.81.139.175:45001/emoInvestMonth',{
+            body:JSON.stringify({"Address":SessionAddress, "Signature":SessionSignature}),
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',})
         .then((response) => {
           return response.json();
         })
@@ -95,7 +140,14 @@ for (var i = 0; i < 1; i++) {
     function halfyearAlert(){
         deletetext();
         
-        fetch('http://34.81.139.175:45001/emoInvestHalfYear')
+        fetch('http://34.81.139.175:45001/emoInvestHalfYear',{
+            body:JSON.stringify({"Address":SessionAddress, "Signature":SessionSignature}),
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',})
         .then((response) => {
           return response.json();
         })
@@ -120,7 +172,14 @@ for (var i = 0; i < 1; i++) {
     function yearAlert(){
         deletetext();
         
-        fetch('http://34.81.139.175:45001/emoInvestYear')
+        fetch('http://34.81.139.175:45001/emoInvestYear',{
+            body:JSON.stringify({"Address":SessionAddress, "Signature":SessionSignature}),
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',})
         .then((response) => {
           return response.json();
         })
@@ -145,7 +204,14 @@ for (var i = 0; i < 1; i++) {
     function AllDataAlert(){
         deletetext();
         
-        fetch('http://34.81.139.175:45001/emoInvestTotal')
+        fetch('http://34.81.139.175:45001/emoInvestTotal',{
+            body:JSON.stringify({"Address":SessionAddress, "Signature":SessionSignature}),
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+                'content-type': 'application/json'
+            },
+            method: 'POST',})
         .then((response) => {
           return response.json();
         })
@@ -321,11 +387,11 @@ function indexinvestfirstlayerr(Alldata){
 
       `<div class="innertext2">
               
-  <h4 class="text1">虛擬貨幣市值：${Processdata.MarketValue} USTD</h4><br>
+  <h4 class="text1">虛擬貨幣市值：${Processdata.MarketValue} USD</h4><br>
               
-  <h4 class="text2">總成本：${Processdata.AllSymbolCost} USTD</h4><br>
+  <h4 class="text2">總成本：${Processdata.AllSymbolCost} USD</h4><br>
               
-  <h4 class="text3">總損益：${Processdata.AllSymbolUpAndDown} USTD</h4>
+  <h4 class="text3">總損益：${Processdata.AllSymbolUpAndDown} USD</h4>
               
 </div>`
 
