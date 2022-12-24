@@ -243,6 +243,37 @@ function main() {
     console.log(req.body.Signature);
   });
 
+  app.post("/WalletGetBinanceAPIKEY", jsonParser, function (req, res) {
+    if (
+      req.body.Address ==
+      web3.eth.accounts.recover("Welcome to Emovest", req.body.Signature)
+    ) {
+      connectionInvest.query(
+        "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`='" +
+          address +
+          "'",
+        function (err, rows, fields) {
+          if (err) throw err;
+          Key = rows[0].BinanceKEY;
+          Secret = rows[0].BinanceSECRET;
+          res.writeHead(200, { "Content-type": "application/json" });
+          res.end(
+            '{"KEY":' +
+              rows[0].BinanceKEY +
+              ', "Secret":' +
+              rows[0].BinanceSECRET +
+              "}"
+          );
+        }
+      );
+    }
+  });
+
+  app.post("/WalletSetBinanceAPIKEY", jsonParser, function (req, res) {
+    console.log(req.body.Address);
+    console.log(req.body.Signature);
+  });
+
   app.listen(port);
 }
 main();
