@@ -3,6 +3,7 @@ var cors = require("cors"); //cors 的預設為全開放
 var app = express();
 require("dotenv").config();
 var mysql = require("mysql");
+const web3 = require("web3");
 var bodyParser = require("body-parser");
 const port = 45001;
 
