@@ -6,6 +6,9 @@ var mysql = require("mysql");
 var bodyParser = require("body-parser");
 const port = 45001;
 
+// create application/json parser
+var jsonParser = bodyParser.json();
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // connect MySQL
@@ -26,6 +29,7 @@ var connectionInvest = mysql.createConnection({
 function main() {
   app.use(cors());
   app.get("/", function (req, res) {
+    if (err) throw err;
     res.send("hello world");
   });
 
@@ -234,7 +238,7 @@ function main() {
     );
   });
 
-  app.post("/WalletSig", urlencodedParser, function (req, res) {
+  app.post("/WalletSig", jsonParser, function (req, res) {
     console.log(req.body.Address);
     console.log(req.body.Signature);
   });
