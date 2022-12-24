@@ -169,46 +169,64 @@ function main() {
   //invest
   /////////////
 
-  app.get("/emoInvestWeek", function (req, res) {
-    connectionInvest.query(
-      //還沒把Address拿出來
-      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 604800000 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
-      function (err, rows, fields) {
-        if (err) throw err;
-        console.log("The period is Week");
-        res.writeHead(222, { "Content-type": "application/json" });
-        res.end(JSON.stringify(rows));
-        console.log(JSON.stringify(rows));
-      }
-    );
+  app.post("/emoInvestWeek", jsonParser, function (req, res) {
+    if (
+      req.body.Address ==
+      ethers.utils.verifyMessage("Welcome to Emovest", req.body.Signature)
+    ) {
+      connectionInvest.query(
+        'SELECT * FROM trans_data WHERE Address = "' +
+          req.body.Address +
+          '" AND ViewTime = 604800000 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("The period is InvestWeek");
+          res.writeHead(222, { "Content-type": "application/json" });
+          res.end(JSON.stringify(rows));
+          console.log(JSON.stringify(rows));
+        }
+      );
+    }
   });
 
-  app.get("/emoInvestMonth", function (req, res) {
-    connectionInvest.query(
-      //還沒把Address拿出來
-      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 2678400000 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
-      function (err, rows, fields) {
-        if (err) throw err;
-        console.log("The period is Month");
-        res.writeHead(222, { "Content-type": "application/json" });
-        res.end(JSON.stringify(rows));
-        console.log(JSON.stringify(rows));
-      }
-    );
+  app.post("/emoInvestMonth", jsonParser, function (req, res) {
+    if (
+      req.body.Address ==
+      ethers.utils.verifyMessage("Welcome to Emovest", req.body.Signature)
+    ) {
+      connectionInvest.query(
+        'SELECT * FROM trans_data WHERE Address = "' +
+          req.body.Address +
+          '" AND ViewTime = 2678400000 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("The period is InvestMonth");
+          res.writeHead(222, { "Content-type": "application/json" });
+          res.end(JSON.stringify(rows));
+          console.log(JSON.stringify(rows));
+        }
+      );
+    }
   });
 
-  app.get("/emoInvestHalfYear", function (req, res) {
-    connectionInvest.query(
-      //還沒把Address拿出來
-      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 15768000000 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
-      function (err, rows, fields) {
-        if (err) throw err;
-        console.log("The period is HalfYear");
-        res.writeHead(222, { "Content-type": "application/json" });
-        res.end(JSON.stringify(rows));
-        console.log(JSON.stringify(rows));
-      }
-    );
+  app.post("/emoInvestHalfYear", jsonParser, function (req, res) {
+    if (
+      req.body.Address ==
+      ethers.utils.verifyMessage("Welcome to Emovest", req.body.Signature)
+    ) {
+      connectionInvest.query(
+        'SELECT * FROM trans_data WHERE Address = "' +
+          req.body.Address +
+          '" AND ViewTime = 15768000000 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("The period is HalfYear");
+          res.writeHead(222, { "Content-type": "application/json" });
+          res.end(JSON.stringify(rows));
+          console.log(JSON.stringify(rows));
+        }
+      );
+    }
   });
 
   app.post("/emoInvestYear", jsonParser, function (req, res) {
