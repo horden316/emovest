@@ -15,6 +15,30 @@ constctx2 = 'myChart2';
 
 var period = 0;
 
+AllData();
+
+function AllData(){
+    deletetext();
+    
+    fetch('http://34.81.139.175:45001/emoInvestTotal')
+    .then((response) => {
+      return response.json();
+    })
+    .then( (response) => {
+        console.log(response)
+        if (response.length > 0) {
+            response.forEach(function(item, index, array){
+                indexinvestfirstlayerr(response);
+            });
+        } else {
+            indexinvestTabDemo2Nodata();
+        }
+    })
+    .catch((error) => {
+      console.log(`Error: ${error}`);
+    })
+}
+
 for (var i = 0; i < 1; i++) {
 
     //Unix time of a week = 604800
@@ -118,7 +142,7 @@ for (var i = 0; i < 1; i++) {
     ele[i].onclick = yearAlert;
 
     //Unix time of all = 999999999
-    function pagerefreshAlert(){
+    function AllDataAlert(){
         deletetext();
         
         fetch('http://34.81.139.175:45001/emoInvestTotal')
@@ -129,10 +153,10 @@ for (var i = 0; i < 1; i++) {
             console.log(response)
             if (response.length > 0) {
                 response.forEach(function(item, index, array){
-                    indexinvestfirstlayerr(response);
+                    indexinvestTabDemo(item);
                 });
             } else {
-                indexinvestfirstlayerrNodata();
+                indexinvestTabDemo2Nodata();
             }
         })
         .catch((error) => {
@@ -140,7 +164,7 @@ for (var i = 0; i < 1; i++) {
         })
     }
     var ele = document.getElementsByClassName('pagerefresh');
-    ele[i].onclick = pagerefreshAlert;
+    ele[i].onclick = AllDataAlert;
     
 }
     
@@ -241,7 +265,7 @@ function indexinvestTabDemo(data){
 }
 
 
-function indexinvestfirstlayerrNodata(){
+function indexinvestTabDemo2Nodata(){
 
     const TabDemo = document.querySelector('[data-target="tab-demo"]')
   
