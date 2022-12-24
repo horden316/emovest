@@ -251,7 +251,7 @@ function main() {
     ) {
       connectionInvest.query(
         "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`='" +
-          address +
+          req.body.Address +
           "'",
         function (err, rows, fields) {
           if (err) throw err;
