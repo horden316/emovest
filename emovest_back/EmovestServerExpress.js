@@ -225,18 +225,24 @@ function main() {
     );
   });
 
-  app.get("/emoInvestTotal", function (req, res) {
-    connectionInvest.query(
-      //還沒把Address拿出來
-      'SELECT * FROM trans_data WHERE Address = "" AND ViewTime = 99999999999 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
-      function (err, rows, fields) {
-        if (err) throw err;
-        console.log("The period is Total");
-        res.writeHead(222, { "Content-type": "application/json" });
-        res.end(JSON.stringify(rows));
-        console.log(JSON.stringify(rows));
-      }
-    );
+  app.post("/emoInvestTotal", jsonParser, function (req, res) {
+    if (
+      req.body.Address ==
+      ethers.utils.verifyMessage("Welcome to Emovest", req.body.Signature)
+    ) {
+      connectionInvest.query(
+        'SELECT * FROM trans_data WHERE Address = "' +
+          req.body.Address +
+          '" AND ViewTime = 99999999999 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
+        function (err, rows, fields) {
+          if (err) throw err;
+          console.log("The period is Total");
+          res.writeHead(222, { "Content-type": "application/json" });
+          res.end(JSON.stringify(rows));
+          console.log(JSON.stringify(rows));
+        }
+      );
+    }
   });
 
   app.post("/WalletSig", jsonParser, function (req, res) {
