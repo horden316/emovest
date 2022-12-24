@@ -211,7 +211,7 @@ function main() {
     );
   });
 
-  app.get("/emoInvestYear", function (req, res) {
+  app.get("/emoInvestYear", jsonParser, function (req, res) {
     if (
       req.body.Address ==
       ethers.utils.verifyMessage("Welcome to Emovest", req.body.Signature)
@@ -222,7 +222,7 @@ function main() {
           '" AND ViewTime = 31536000000 AND TotalSpend <> 0 ORDER BY TotalSpend DESC',
         function (err, rows, fields) {
           if (err) throw err;
-          console.log("The period is Total");
+          console.log("The period is Year");
           res.writeHead(222, { "Content-type": "application/json" });
           res.end(JSON.stringify(rows));
           console.log(JSON.stringify(rows));
