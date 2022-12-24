@@ -259,11 +259,10 @@ function main() {
           Secret = rows[0].BinanceSECRET;
           res.writeHead(200, { "Content-type": "application/json" });
           res.end(
-            '{"KEY":' +
-              rows[0].BinanceKEY +
-              ', "Secret":' +
-              rows[0].BinanceSECRET +
-              "}"
+            JSON.stringify({
+              KEY: rows[0].BinanceKEY,
+              Secret: rows[0].BinanceSECRET,
+            })
           );
         }
       );
