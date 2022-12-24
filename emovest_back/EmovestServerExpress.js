@@ -3,7 +3,7 @@ var cors = require("cors"); //cors 的預設為全開放
 var app = express();
 require("dotenv").config();
 var mysql = require("mysql");
-const web3 = require("web3");
+const ethers = require("ethers");
 var bodyParser = require("body-parser");
 const port = 45001;
 
@@ -247,7 +247,7 @@ function main() {
   app.post("/WalletGetBinanceAPIKEY", jsonParser, function (req, res) {
     if (
       req.body.Address ==
-      web3.eth.accounts.recover("Welcome to Emovest", req.body.Signature)
+      ethers.utils.verifyMessage("Welcome to Emovest", req.body.Signature)
     ) {
       connectionInvest.query(
         "SELECT `BinanceKEY`, `BinanceSECRET` FROM `userdata` WHERE `Address`='" +
@@ -267,6 +267,8 @@ function main() {
           );
         }
       );
+    } else {
+      res.end('{"KEY":0 "Secret":0}');
     }
   });
 
