@@ -268,7 +268,7 @@ function main() {
         }
       );
     } else {
-      res.end('{"KEY":0 "Secret":0}');
+      res.end('{"KEY":0, "Secret":0}');
     }
   });
 
