@@ -192,7 +192,7 @@ async function history(address) {
       );
       console.log(data);
 
-      if ((i = ALLOrder.length)) {
+      if ((i = ALLOrder.length && TotalSpend != 0 && TotalQuan != 0)) {
         fs.writeFileSync(
           "./emovest_back/binance/" + ViewTime + "conclusion.json",
           JSON.stringify(data),
