@@ -26,7 +26,7 @@ function Login() {
         ethereum.request({method: 'eth_requestAccounts'}).then((result) => {
             address = result[0];
             CHECKSUMADDRESS = web3.utils.toChecksumAddress(address)
-            alert('錢包連接成功，地址為' + CHECKSUMADDRESS);
+            //alert('錢包連接成功，地址為' + CHECKSUMADDRESS);
 
             var hexData = window.web3.utils.utf8ToHex("Welcome to Emovest");
 
