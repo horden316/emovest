@@ -159,6 +159,7 @@ li {
     flex-direction: row;
     width: 1280px;
     font-size: 20px;
+    margin-top: 30px;
 }
 
 .firstlayerl {
@@ -195,26 +196,89 @@ li {
 .vline2 {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 .vline2 hr {
-    width: 1000px;
+    width: 1200px;
     opacity: 0.5;
+
 }
 
 /*第二層*/
+.TheButtons {
+    margin-left: 70px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.month,
+.halfyear,
+.year {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #F0C994;
+    border-left: none;
+    background-color: white;
+    font-size: 12px;
+    color: #432B0F;
+    /* margin-right: 10px;
+    margin-left: 10px; */
+}
+
+.week {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #F0C994;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background-color: white;
+    font-size: 12px;
+    color: #432B0F;
+    /* margin-right: 10px;
+    margin-left: 10px; */
+}
+
+.pagerefresh {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #F0C994;
+    border-left: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: white;
+    font-size: 12px;
+    color: #432B0F;
+}
 
 .secondlayer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    max-width: 1200px;
     font-size: 20px;
+    width: 1350px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 50px;
+    margin-bottom: 80px;
     font-family: 'Inter', sans-serif;
+    overflow-x: scroll;
+}
+
+/*當secondlayer沒有交易資料可以顯示*/
+.NoTrans p {
+    margin: 40px 40px 80px 50px;
+}
+
+.tab-demo {
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 a {
@@ -270,7 +334,7 @@ li {
     border-top: none;
     border-bottom: none;
     width: 300px;
-    height: 400px;
+    height: 250px;
     position: relative;
 }
 
@@ -318,9 +382,19 @@ img {
     margin-top: 20px;
 }
 
+.blankbox1 {
+    width: 300px;
+    height: 25px;
+    background-color: #F0C994;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #DC9756;
+    border-bottom: none;
+}
+
 .blankbox {
     width: 300px;
-    height: 30px;
+    height: 25px;
     background-color: #F0C994;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -328,19 +402,7 @@ img {
     border-top: none;
 }
 
-.morebit {
-    display: flex;
-    justify-content: flex-end;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 16px;
-}
 
-.morebit a {
-    font-size: 1em;
-    color: blue;
-}
 
 /*下半部*/
 .latestlayer {
@@ -363,7 +425,7 @@ img {
 }
 
 .content h3 {
-    font-size: 0.8em;
+    font-size: 0.7em;
     margin-top: 30px;
     font-weight: 400;
 }
@@ -392,3 +454,10 @@ img {
     font-size: 0.5em;
     opacity: 0.5;
 }
+
+
+/*
+.row {
+    overflow:scroll;overflow-X:hidden;&nbsp;
+}
+*/

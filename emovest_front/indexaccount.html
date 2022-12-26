@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://kit.fontawesome.com/27fa02f410.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/styleaccount.css">
@@ -62,8 +63,8 @@
             <i class="fa-solid fa-square-xmark productCross2"></i>
             <h1 class="cardtitle">設定</h1>
             <div class="cardText">
-                <p>APIKEY:</p><input type="text" class="apikey">
-                <p>APISECRET:</p><input type="text" class="apisecret">
+                <p>APIKEY:</p><input type="text" class="apikey" id="apikeybinance">
+                <p>APISECRET:</p><input type="text" class="apisecret" id="apisecretbinance">
             </div>
             <button class="submit">提交</button>
         </div>
@@ -135,17 +136,8 @@
                     <h6 class="boxname">Binance</h6>
                 </div>
                 <hr class="boxline">
-                <button class="boxbtn2">設定</button>
+                <button class="boxbtn2" id="binanceLink">設定</button>
             </div>
-            <div class="bitbox2">
-                <div class="boxtitle">
-                    <img src="img/FTX.png" alt="">
-                    <h6 class="boxname">FTX</h6>
-                </div>
-                <hr class="boxline">
-                <button class="boxbtn2">設定</button>
-            </div>
-            <div class="bitboxblank"></div>
         </div>
     </div>
 
@@ -260,9 +252,50 @@
             $(".card_product").toggle();
         })
         $(".boxbtn2").click(function () {
-            $(".card_product_page").toggle();
-            $(".card_product_page").css({ "background-color": "rgba(0, 0, 0, 0.3);" });
-            $(".card_set").toggle();
+            if (window.web3) {
+                window.web3 = new Web3(window.web3.currentProvider);
+                ethereum.request({ method: 'eth_requestAccounts' }).then((result) =>               {
+                    address = result[0];
+                    CHECKSUMADDRESS=web3.utils.toChecksumAddress(address)
+
+                    var hexData = window.web3.utils.utf8ToHex("Welcome to Emovest");
+
+                    window.web3.eth.personal.sign(hexData, address, function(result, signature){
+                        //alert(signature);
+                        console.log(signature); // Signature
+                        fetch('http://34.81.139.175:45001/WalletGetBinanceAPIKEY',{
+                            //body:JSON.stringify({"Address":address, "Signature":signature}),
+                            body:JSON.stringify({"Address":CHECKSUMADDRESS, "Signature":signature}),
+                            cache: 'no-cache',
+                            credentials: 'same-origin',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            method: 'POST',
+                        })
+                            .then((response) => {
+                                return response.json();
+                            })
+                            .then((response) => {
+                                $(".card_product_page").toggle();
+                                $(".card_product_page").css({ "background-color": "rgba(0, 0, 0, 0.3);" });
+                                $(".card_set").toggle();
+                                if(response.KEY!=0) {
+                                    document.getElementById("apikeybinance").value = response.KEY;
+                                    document.getElementById("apisecretbinance").value = response.Secret;
+                                }
+                                else{
+                                    alert("登入不成功")
+                                }
+
+                            })
+                    })
+                }).catch((error) => {
+                    console.log("error",error);
+                });
+            } else {
+                alert( '沒有安裝錢包' );
+            }
         })
 
         $(".productCross2").click(function () {
@@ -286,5 +319,8 @@
     })
 
 </script>
+
+
+
 
 </html>
