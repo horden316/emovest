@@ -39,7 +39,7 @@ async function history(address) {
       limit: 2, // Limit results to two entries
     };
 
-    var data = [];
+    
     const AllSymbol = require("./symbol.json");
 
     getLatestPrice();
@@ -56,12 +56,13 @@ async function history(address) {
     for (var k = 0; k < AllSymbol.length; k++) {
       getHistoryTradeData(AllSymbol[k]);
     }
-    const AllTime = Date.now();
+    
     var time = [604800000, 2678400000, 15768000000, 31536000000, 99999999999];
     setTimeout(function () {
       for (var j = 0; j < time.length; j++) {
+        var data = [];
         for (var k = 0; k < AllSymbol.length; k++) {
-          main(AllSymbol[k], time[j])
+          main(AllSymbol[k], time[j], data)
             .then(() => process.exit(0))
             .catch((error) => {
               console.error(error);
@@ -102,13 +103,13 @@ async function history(address) {
     //   console.log("Price of " + symbolname + ": " + Object.values(ticker));
     // });
 
-    async function main(symbolname, period) {
-      await getAveragePrice(symbolname, period).then((v) => {
+    async function main(symbolname, period, data) {
+      await getAveragePrice(symbolname, period, data).then((v) => {
         console.log(v);
       });
     }
 
-    async function getAveragePrice(TradingPair, ViewTime) {
+    async function getAveragePrice(TradingPair, ViewTime, data) {
       //傳入要算的交易對的名稱, 還有要觀察的時間（用UnixTime）
       const ALLOrder = JSON.parse(
         fs.readFileSync("./emovest_back/binance/Json/" + TradingPair + ".json")
@@ -192,7 +193,7 @@ async function history(address) {
       );
       console.log(data);
 
-      if ((i = ALLOrder.length && TotalSpend != 0 && TotalQuan != 0)) {
+      if ((i == ALLOrder.length)) {
         fs.writeFileSync(
           "./emovest_back/binance/" + ViewTime + "conclusion.json",
           JSON.stringify(data),
