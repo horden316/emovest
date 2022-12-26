@@ -39,7 +39,6 @@ async function history(address) {
       limit: 2, // Limit results to two entries
     };
 
-    
     const AllSymbol = require("./symbol.json");
 
     getLatestPrice();
@@ -56,7 +55,7 @@ async function history(address) {
     for (var k = 0; k < AllSymbol.length; k++) {
       getHistoryTradeData(AllSymbol[k]);
     }
-    
+
     var time = [604800000, 2678400000, 15768000000, 31536000000, 99999999999];
     setTimeout(function () {
       for (var j = 0; j < time.length; j++) {
@@ -168,10 +167,8 @@ async function history(address) {
       }
 
       var Avg = TotalSpend / TotalQuan;
-      var UpAndDown = Math.round((((LatestPrice - Avg) / Avg) * 10000) / 100.0);
-      var ProfitAndLoss = Math.round(
-        (((LatestPrice * TotalQuan) / TotalSpend - 1) * 10000) / 100.0
-      );
+      var UpAndDown = (LatestPrice - Avg) / Avg;
+      var ProfitAndLoss = (LatestPrice * TotalQuan) / TotalSpend - 1;
       var ProfitAndLossAmount = LatestPrice * TotalQuan - TotalSpend;
 
       data.push(
@@ -193,7 +190,7 @@ async function history(address) {
       );
       console.log(data);
 
-      if ((i == ALLOrder.length)) {
+      if (i == ALLOrder.length) {
         fs.writeFileSync(
           "./emovest_back/binance/" + ViewTime + "conclusion.json",
           JSON.stringify(data),
