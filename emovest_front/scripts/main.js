@@ -280,13 +280,13 @@ function indexinvestTabDemo(data){
 
 <div id="one" class="tab-inner">
 
-<h3>${data.Symbol}</h3>
+<h3>${data.Symbol} (${data.LatestPrice})</h3>
 
 <div class="text1">
 
-    <p>每單位成本價</p>
+    <p>資產市值</p>
 
-    <p>${Math.round(data.AvgCost * 1000) / 1000} USDT</p>
+    <p>${Math.round(data.TotalSpend * 1000) / 1000} USDT</p>
 
 </div>
 
@@ -300,7 +300,7 @@ function indexinvestTabDemo(data){
 
     <div class="text2l">
 
-        <p>漲跌</p>
+        <p>每單位成本價</p>
 
         <p>損益</p>
 
@@ -310,9 +310,9 @@ function indexinvestTabDemo(data){
 
     <div class="text2r">
 
-        <p>${Math.round(data.UpAndDown * 1000 ) / 1000} %</p>
+        <p>${Math.round(data.AvgCost * 1000 ) / 1000} USDT</p>
 
-        <p>${Math.round(data.ProfitAndLoss * 1000) / 1000} %</p>
+        <p>${Math.round(data.ProfitAndLoss * 100000) / 1000} %</p>
 
         <p>${Math.round(data.ProfitAndLossAmount * 1000) / 1000} USDT</p>
 
@@ -387,11 +387,11 @@ function indexinvestfirstlayerr(Alldata){
 
       `<div class="innertext2">
               
-  <h4 class="text1">虛擬貨幣市值：${Processdata.MarketValue} USD</h4><br>
+  <h4 class="text1">虛擬貨幣市值：${Processdata.MarketValue} USTD</h4><br>
               
-  <h4 class="text2">總成本：${Processdata.AllSymbolCost} USD</h4><br>
+  <h4 class="text2">總成本：${Processdata.AllSymbolCost} USTD</h4><br>
               
-  <h4 class="text3">總損益：${Processdata.AllSymbolUpAndDown} USD</h4>
+  <h4 class="text3">總損益：${Processdata.AllSymbolUpAndDown} USTD</h4>
               
 </div>`
 
